@@ -1,0 +1,33 @@
+[credential]
+    helper = libsecret
+[core]
+    editor = vim
+[color]
+    ui = true
+[push]
+    default = simple
+[mergetool]
+    keepBackup = false
+    prompt = false
+[merge]
+    tool = vimdiff
+[difftool]
+    prompt = false
+[diff]
+    tool = vimdiff
+[alias]
+    undo = reset --soft HEAD^
+    rename = .local/bin/gitrename
+    log = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+[apply]
+    whitespace = fix
+[transfer] 
+    fsckobjects = true 
+[fetch] 
+    fsckobjects = true 
+[receive] 
+    fsckObjects = true 
+[filter "lfs"]
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    required = true
