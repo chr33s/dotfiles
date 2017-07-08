@@ -24,8 +24,8 @@ set number
 set numberwidth=5
 set backspace=indent,eol,start
 set showcmd                    " display incomplete commands
-set nocompatible               " be iMproved
-set fileformats=unix,dos,mac   " support all three, in this order
+set nocompatible
+set fileformats=unix,dos,mac
 set foldmethod=syntax
 set foldlevel=7
 set tags=tags;
@@ -58,9 +58,6 @@ autocmd Filetype c setlocal ts=2 sts=2 sw=2
 autocmd Filetype cpp setlocal ts=2 sts=2 sw=2
 autocmd Filetype js setlocal ts=2 sts=2 sw=2
 
-let g:netrw_list_hide='.DS_Store'
-let g:airline_theme='hybrid'
-
 set background=dark
 colorscheme hybrid
 
@@ -89,5 +86,17 @@ Plug 'sheerun/vim-polyglot'
 Plug 'vim-syntastic/syntastic'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'nathanaelkane/vim-indent-guides'
+Plug 'alampros/vim-styled-jsx'
 
 call plug#end()
+
+let g:syntastic_css_checkers = ['stylelint']
+let g:syntastic_javascript_checkers = ['standard']
+let g:syntastic_html_tidy_ignore_errors = [
+    \ "<svg> is not recognized!",
+    \ "discarding unexpected <svg>",
+    \ "discarding unexpected </svg>",
+\ ]
+
+let g:airline_theme='hybrid'
+let g:netrw_list_hide='.DS_Store'
