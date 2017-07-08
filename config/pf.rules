@@ -1,0 +1,13 @@
+set block-policy drop
+set fingerprints "/etc/pf.os"
+set ruleset-optimization basic
+set skip on lo0
+scrub in all no-df
+table <blocklist> persist
+block in log
+block in log quick from no-route to any
+antispoof log quick for { en0 en1 en2 }
+pass out proto tcp from any to any keep state
+pass out proto udp from any to any keep state
+pass out on utun0
+block log on en0 from {<blocklist>} to any
