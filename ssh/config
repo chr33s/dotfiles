@@ -1,0 +1,6 @@
+Host *
+  # PassAuthentication no
+  ChallengeResponseAuthentication no
+  UseRoaming no
+  ServerAliveInterval 15
+  HashKnownHosts yes
