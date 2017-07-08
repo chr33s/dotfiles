@@ -1,0 +1,25 @@
+#!/bin/bash
+
+hdiutil attach /Applications/Install\ OS\ X\ El\ Capitan.app/Contents/SharedSupport/InstallESD.dmg -noverify -nobrowse -mountpoint /Volumes/install_app
+
+hdiutil create -o /tmp/ElCapitan -size 7316m -layout SPUD -fs HFS+J -type SPARSE
+
+hdiutil attach /tmp/ElCapitan.sparseimage -noverify -nobrowse -mountpoint /Volumes/install_build
+
+asr restore -source /Volumes/install_app/BaseSystem.dmg -target /Volumes/install_build -noprompt -noverify -erase
+
+rm /Volumes/OS\ X\ Base\ System/System/Installation/Packages
+cp -rp /Volumes/install_app/Packages /Volumes/OS\ X\ Base\ System/System/Installation/
+
+cp -rp /Volumes/install_app/BaseSystem.chunklist /Volumes/OS\ X\ Base\ System/BaseSystem.chunklist
+cp -rp /Volumes/install_app/BaseSystem.dmg /Volumes/OS\ X\ Base\ System/BaseSystem.dmg
+
+hdiutil detach /Volumes/install_app
+hdiutil detach /Volumes/OS\ X\ Base\ System/
+hdiutil compact /tmp/ElCapitan.sparseimage
+hdiutil resize -size min /tmp/ElCapitan.sparseimage
+hdiutil convert /tmp/ElCapitan.sparseimage -format UDTO -o /tmp/ElCapitan.iso
+
+mv /tmp/ElCapitan.iso.cdr ~/VMs/src/osx/'OS_10.11.0.iso'
+
+rm -f /tmp/ElCapitan.sparseimage

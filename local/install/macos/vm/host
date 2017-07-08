@@ -1,0 +1,50 @@
+#!/bin/bash
+
+if test $(uname -r) = '12.5.0'; then
+
+  sudo -v
+  while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+
+  pmset -a standbydelay 4200
+  pmset -a destroyfvkeyonstandby 1 hibernatemode 25
+
+  scutil --set ComputerName `whoami`
+  scutil --set HostName `whoami`
+  scutil --set LocalHostName `whoami`
+
+  defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string `whoami`
+  nvram SystemAudioVolume=" "
+  defaults write com.apple.desktopservices DSDontWriteNetworkStores true
+
+  chflags nohidden ~/Library/
+
+  cat >> ~/.bash_profile <<
+  export ARCHFLAGS="-arch x86_64"
+  export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH
+  test -f ~/.bashrc && source ~/.bashrc
+  EOF
+
+  source ~/.bash_profile
+
+  sudo chown $USER /usr/local
+
+  cd /usr/local && mkdir -p src && cd src
+  
+  mkdir homebrew && curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C homebrew
+  
+  casks=(
+    virtualbox 
+    virtualbox-extension-pack
+  )
+
+  brew doctor; brew update; brew upgrade
+  brew tap caskroom/cask
+  brew cask doctor
+  brew cask install ${casks[@]}
+  brew prune; brew cleanup
+
+else
+
+  brew update && brew upgrade
+
+fi
