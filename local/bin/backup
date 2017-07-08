@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# backup (~/Code) (/Volumes/HD)
+
+SRC=$1
+DEST=$2
+EXCL=('.DS_*' '*.iso' '*node_modules*' '*bower_components*' '*box*' '.vagrant*' '*VirtualBox*' '*vendor*' '*lib/Cake*')
+for e in ${EXCL[*]}; do
+    E+="--exclude=${e} "
+done
+
+for s in ${SRC[*]}; do
+    for d in ${DEST[*]}; do
+        rsync -rda --delete ${E} ${s}/ ${d}/backup -v
+    done
+done
