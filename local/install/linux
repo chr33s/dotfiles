@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+
+apt-get update -y || true
+apt-get upgrade -y || true
+apt-get dist-upgrade -y || true
+
+apt-get install -y sudo curl openssh-server || true
+echo "UseDNS no" >> /etc/ssh/sshd_config
+echo "GSSAPIAuthentication no" >> /etc/ssh/sshd_config
+
+sudo apt-get install -y iptables || true
+sudo mkdir -p /etc/iptables
+
+sudo cat > /etc/iptables/rules.v4 <<EOF
+*filter
+-A INPUT -m conntrack --ctstate INVALID -j DROP
+-A INPUT -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+-A INPUT -i lo -j ACCEPT
+-A INPUT -p tcp -m conntrack --ctstate NEW,ESTABLISHED,RELATED --dport 22 -m limit --limit 5/minute --limit-burst 5 -j ACCEPT
+-A INPUT -j DROP
+-A FORWARD -j DROP
+-A OUTPUT -j ACCEPT
+COMMIT
+EOF
+sudo cat > /etc/iptables/rules.v6 <<EOF
+*filter
+-A INPUT -m conntrack --ctstate INVALID -j DROP
+-A INPUT -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+-A INPUT -i lo -j ACCEPT
+-A INPUT -p tcp -m conntrack --ctstate NEW,ESTABLISHED,RELATED --dport 22 -m limit --limit 5/minute --limit-burst 5 -j ACCEPT
+-A INPUT -j DROP
+-A FORWARD -j DROP
+-A OUTPUT -j ACCEPT
+COMMIT
+EOF
+sudo cat > /etc/network/if-pre-up.d/iptables <<EOF
+#!/bin/bash
+iptables-restore < /etc/iptables/rules.v4
+ip6tables-restore < /etc/iptables/rules.v6
+EOF
+sudo chmod +x /etc/network/if-pre-up.d/iptables
+
+sudo /etc/network/if-pre-up.d/iptables
+
+apt-get -y --purge autoremove || true
+apt-get -y clean || true
