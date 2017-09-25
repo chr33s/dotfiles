@@ -58,9 +58,6 @@ autocmd Filetype c setlocal ts=2 sts=2 sw=2
 autocmd Filetype cpp setlocal ts=2 sts=2 sw=2
 autocmd Filetype js setlocal ts=2 sts=2 sw=2
 
-set background=dark
-colorscheme hybrid
-
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
         \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -69,8 +66,7 @@ endif
 
 call plug#begin()
 
-Plug 'w0ng/vim-hybrid', { 'dir': '~/.vim/colors', 'do': 'mv ~/.vim/colors/colors/hybrid.vim ~/.vim/colors && rm -rf ~/.vim/colors/colors' }
-Plug 'arames/vim-async-grep'
+Plug 'ayu-theme/ayu-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 if !has('nvim')
@@ -78,15 +74,12 @@ if !has('nvim')
 endif
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
-Plug 'junegunn/vim-easy-align'
 Plug 'ap/vim-css-color'
 Plug 'hashivim/vim-vagrant'
 Plug 'hashivim/vim-packer'
 Plug 'sheerun/vim-polyglot'
 Plug 'vim-syntastic/syntastic'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'nathanaelkane/vim-indent-guides'
-Plug 'alampros/vim-styled-jsx'
 
 call plug#end()
 
@@ -100,3 +93,7 @@ let g:syntastic_html_tidy_ignore_errors = [
 
 let g:airline_theme='hybrid'
 let g:netrw_list_hide='.DS_Store'
+
+set termguicolors
+let ayucolor='light'
+colorscheme ayu
