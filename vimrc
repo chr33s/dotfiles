@@ -78,18 +78,13 @@ Plug 'ap/vim-css-color'
 Plug 'hashivim/vim-vagrant'
 Plug 'hashivim/vim-packer'
 Plug 'sheerun/vim-polyglot'
-Plug 'vim-syntastic/syntastic'
+Plug 'prettier/vim-prettier'
 Plug 'ctrlpvim/ctrlp.vim'
 
 call plug#end()
 
-let g:syntastic_css_checkers = ['stylelint']
-let g:syntastic_javascript_checkers = ['standard']
-let g:syntastic_html_tidy_ignore_errors = [
-    \ "<svg> is not recognized!",
-    \ "discarding unexpected <svg>",
-    \ "discarding unexpected </svg>",
-\ ]
+let g:prettier#config#semi = 'false'
+let g:prettier#config#singleQuote = 'true'
 
 let g:airline_theme='hybrid'
 let g:netrw_list_hide='.DS_Store'
