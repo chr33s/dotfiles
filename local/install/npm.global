@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+if test ! $(which npm); then
+
+  packages=(
+    prettier
+    eslint
+    eslint-config-prettier
+    eslint-plugin-prettier
+    eslint-plugin-react
+    babel-eslint
+    svgo
+  )
+
+  npm -g ${packages[@]}
+
+fi
