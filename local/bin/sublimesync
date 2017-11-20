@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# sublimesync <copy>|<link>
+
+CMD=${1:-copy}
+DEST="$HOME/.config/sublime"
+
+case "$OSTYPE" in
+  darwin*)
+    SRC="$HOME/Library/Application Support/Sublime Text 3/Packages/User/" ;;
+  linux*)
+    SRC="$HOME/.config/sublime-text-3/Packages/User/" ;;
+esac
+
+case "$CMD" in
+  copy)
+    cp -R "$SRC" "$DEST" ;;
+  link)
+    mv -r "$SRC" "$SRC.bak"
+    ln -s $DEST $SRC ;;
+esac

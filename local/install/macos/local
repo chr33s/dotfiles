@@ -112,6 +112,7 @@ if test ! $(which brew); then
     virtualbox 
     virtualbox-extension-pack 
     vagrant
+    sublime-text
   )
 
   brew doctor

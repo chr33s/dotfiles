@@ -1,0 +1,18 @@
+{
+	"color_scheme": "Packages/ayu/ayu-light.tmTheme",
+	"create_window_at_startup": false,
+	"folder_exclude_patterns":
+	[
+		".git",
+		"node_modules"
+	],
+	"font_size": 14,
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"theme": "ayu-light.sublime-theme",
+	"ui_font_default": true,
+	"ui_native_titlebar": true,
+	"word_wrap": false
+}
