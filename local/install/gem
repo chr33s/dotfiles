@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+if test ! $(which gem); then
+
+  packages=(
+    fastlane
+  )
+
+  gem -g ${packages[@]}
+  gem cleanup
+
+fi

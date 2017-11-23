@@ -106,6 +106,10 @@ if test ! $(which brew); then
 
   packages=(
     brew-cask 
+    node
+    ruby
+    yarn
+    watchman
   )
 
   casks=(
@@ -113,6 +117,8 @@ if test ! $(which brew); then
     virtualbox-extension-pack 
     vagrant
     sublime-text
+    android-studio
+    java
   )
 
   brew doctor
