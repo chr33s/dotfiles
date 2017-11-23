@@ -105,7 +105,30 @@ if test ! $(which brew); then
   )
 
   packages=(
-    brew-cask 
+    brew-cask
+    sqlite
+    kotlin
+    terraform
+    tree
+    bash-completion
+    git-lfs
+    mailhog
+    mariadb
+    plantuml
+    gnupg
+    mercurial
+    postgresql
+    mongodb
+    docker
+    go
+    python
+    docker-compose
+    graphviz
+    neovim
+    docker-machine
+    elasticsearch
+    nmap
+    redis
     node
     ruby
     yarn
@@ -117,8 +140,17 @@ if test ! $(which brew); then
     virtualbox-extension-pack 
     vagrant
     sublime-text
+    1password
+    iterm2
+    sketch
     android-studio
     java
+    firefox
+    google-chrome
+    sequel-pro
+    transmit
+    tower
+    mindnode-pro
   )
 
   brew doctor
