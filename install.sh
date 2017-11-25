@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-files=( 'vim' 'vimrc' 'screenrc' 'bash' 'bashrc' 'bash_profile' 'local' 'gitconfig' 'config' 'curlrc' 'gnupg' 'ssh' 'editorconfig' 'eslintrc' )
+files=( 'vim' 'vimrc' 'screenrc' 'bash' 'bashrc' 'bash_profile' 'local' 'gitconfig' 'config' 'curlrc' 'gnupg' 'ssh' 'editorconfig' 'eslintrc' 'gemrc' )
 
 for file in "${files[@]}"
 do

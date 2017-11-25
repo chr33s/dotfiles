@@ -10,7 +10,6 @@ if test ! $(which npm); then
     eslint-plugin-react
     babel-eslint
     svgo
-    n
     react-native-cli
     react-native-git-upgrade
   )

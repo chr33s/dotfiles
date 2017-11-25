@@ -6,7 +6,7 @@ if test ! $(which gem); then
     fastlane
   )
 
-  gem -g ${packages[@]}
+  gem install ${packages[@]} --no-rdoc --no-ri
   gem cleanup
 
 fi

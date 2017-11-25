@@ -105,7 +105,6 @@ if test ! $(which brew); then
   )
 
   packages=(
-    brew-cask
     sqlite
     kotlin
     terraform
@@ -121,6 +120,7 @@ if test ! $(which brew); then
     mongodb
     docker
     go
+    n
     python
     docker-compose
     graphviz
@@ -129,9 +129,7 @@ if test ! $(which brew); then
     elasticsearch
     nmap
     redis
-    node
     ruby
-    yarn
     watchman
   )
 
@@ -143,24 +141,27 @@ if test ! $(which brew); then
     1password
     iterm2
     sketch
-    android-studio
+    caskroom/versions/java8
     java
+    android-studio
     firefox
     google-chrome
     sequel-pro
-    transmit
     tower
     mindnode-pro
   )
 
   brew doctor
-  brew install openssl && brew install curl --with-openssl && brew link --force curl
   brew tap ${taps[@]}
-  brew install ${packages[@]} 
   brew cask doctor
   brew cask install ${casks[@]}
+  brew install ${packages[@]} 
+  brew install yarn --without-node
 
   brew prune; brew cleanup
+  brew cask cleanup
+
+  chown -R `whoami`:staff /usr/local/*
 
   trimforce enable
 

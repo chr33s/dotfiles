@@ -6,6 +6,7 @@ android/analytics.settings
 android/cache/
 android/metrics/
 android/uid.txt
+vim/autoload/
 vim/plugged/
 ssh
 gnupg
