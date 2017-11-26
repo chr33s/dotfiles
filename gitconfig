@@ -2,6 +2,7 @@
     helper = libsecret
 [core]
     editor = vim
+	excludesfile = /Users/chr33s/.gitignore
 [color]
     ui = true
 [push]
