@@ -6,6 +6,7 @@ files=(
     'screenrc'
     'bash'
     'bashrc'
+    'bash_sessions_disable'
     'bash_profile'
     'local'
     'gitconfig'
