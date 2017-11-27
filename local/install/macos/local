@@ -48,7 +48,7 @@ if test ! $(which brew); then
   function disable_agent {
     sudo launchctl unload -w /System/Library/LaunchAgents/com.apple.${1}.plist
   }
-  
+
   agents=(
     AddressBook.AssistantService
     AddressBook.SourceSync
@@ -101,7 +101,7 @@ if test ! $(which brew); then
   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
   taps=(
-    caskroom/cask 
+    caskroom/cask
   )
 
   packages=(
@@ -134,15 +134,14 @@ if test ! $(which brew); then
   )
 
   casks=(
-    virtualbox 
-    virtualbox-extension-pack 
+    virtualbox
+    virtualbox-extension-pack
     vagrant
     sublime-text
     1password
     iterm2
     sketch
     caskroom/versions/java8
-    java
     android-studio
     firefox
     google-chrome
@@ -155,7 +154,7 @@ if test ! $(which brew); then
   brew tap ${taps[@]}
   brew cask doctor
   brew cask install ${casks[@]}
-  brew install ${packages[@]} 
+  brew install ${packages[@]}
   brew install yarn --without-node
 
   brew prune; brew cleanup

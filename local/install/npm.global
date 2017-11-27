@@ -8,6 +8,7 @@ if test ! $(which npm); then
     eslint-config-prettier
     eslint-plugin-prettier
     eslint-plugin-react
+    eslint-plugin-react-native
     babel-eslint
     svgo
     react-native-cli
