@@ -27,6 +27,15 @@ function extract () {
    fi
 }
 
+function scrub() {
+  if [ -f $1 ] && [[ "$1" == *.zip ]] ; then
+    zip -qd $1 __MACOSX/\*
+    zip -qd $1 \*/.DS_Store
+  else
+    echo "'$1' invalid file"
+  fi
+}
+
 function server() {
   local port="${1:-8000}";
   sleep 1 && open "http://localhost:${port}/" &
