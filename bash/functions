@@ -49,3 +49,8 @@ function random() {
 function rm_ds_store() {
   find ${PWD} -name ".DS_Store" -depth -exec rm {} \;
 }
+
+function fix_n() {
+  sudo /usr/libexec/ApplicationFirewall/socketfilterfw --remove /usr/local/bin/node || true
+  sudo /usr/libexec/ApplicationFirewall/socketfilterfw --add /usr/local/bin/node || true
+}
