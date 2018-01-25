@@ -1,12 +1,7 @@
 .DS_*
 *.swp
-android/adbkey
-android/adbkey.pub
-android/analytics.settings
-android/cache/
-android/metrics/
-android/uid.txt
 vim/autoload/
 vim/plugged/
+config/configstore
 ssh
 gnupg
