@@ -54,3 +54,7 @@ function fix_n() {
   sudo /usr/libexec/ApplicationFirewall/socketfilterfw --remove /usr/local/bin/node || true
   sudo /usr/libexec/ApplicationFirewall/socketfilterfw --add /usr/local/bin/node || true
 }
+
+function dotenv() {
+  export $(cat .env | xargs)
+}
