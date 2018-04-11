@@ -6,6 +6,7 @@
 		".git",
 		"node_modules"
 	],
+	"font_face": "Fira Code",
 	"font_size": 14,
 	"ignored_packages":
 	[
