@@ -113,6 +113,7 @@ if test ! $(which brew); then
     terraform
     tree
     bash-completion
+    brew-cask-completion
     git-lfs
     mailhog
     mariadb
@@ -126,6 +127,8 @@ if test ! $(which brew); then
     go
     n
     python
+    packer
+    packer-completion
     docker-compose
     graphviz
     neovim
@@ -135,6 +138,7 @@ if test ! $(which brew); then
     redis
     ruby
     watchman
+    vagrant-completion
   )
 
   casks=(
