@@ -109,8 +109,6 @@ if test ! $(which brew); then
 
   packages=(
     sqlite
-    kotlin
-    terraform
     tree
     bash-completion
     brew-cask-completion
@@ -120,23 +118,16 @@ if test ! $(which brew); then
     plantuml
     gnupg
     mercurial
-    postgresql
-    mongodb
     docker
     dep
     go
-    n
-    python
-    packer
+    asdf
     packer-completion
     docker-compose
     graphviz
     neovim
     docker-machine
-    elasticsearch
     nmap
-    redis
-    ruby
     watchman
     vagrant-completion
   )
@@ -169,7 +160,42 @@ if test ! $(which brew); then
   brew prune; brew cleanup
   brew cask cleanup
 
+  plugins=(
+    elasticsearch
+    golang
+    kotlin
+    kubectl
+    minikube
+    mongodb
+    nodejs
+    packer
+    postgres
+    python
+    redis
+    ruby
+    terraform
+  )
+
   chown -R `whoami`:staff /usr/local/*
+
+  asdf plugin-add ${plugins[@]}
+
+  versions=(
+    "elasticsearch 6.2.4"
+    "golang 1.10.2"
+    "kotlin 1.2.41"
+    "mongodb 3.6.4"
+    "nodejs 6.10.3"
+    "packer 1.2.3"
+    "postgres 10.4"
+    "python 3.6.5"
+    "redis 4.0.9"
+    "ruby 2.5.1"
+    "terraform 0.11.7"
+  )
+
+  asdf install ${versions[@]}
+  asdf global ${versions[@]}
 
   trimforce enable
 

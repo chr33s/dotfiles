@@ -20,6 +20,7 @@ files=(
     'gemrc'
     'my.cnf'
     'hushlogin'
+    'default-npm-packages'
 )
 
 for file in "${files[@]}"
