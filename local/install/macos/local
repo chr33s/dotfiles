@@ -101,101 +101,12 @@ if test ! $(which brew); then
 
   xcode-select --install
 
-  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-
-  taps=(
-    caskroom/cask
-  )
-
-  packages=(
-    sqlite
-    tree
-    bash-completion
-    brew-cask-completion
-    git-lfs
-    mailhog
-    mariadb
-    plantuml
-    gnupg
-    mercurial
-    docker
-    dep
-    go
-    asdf
-    packer-completion
-    docker-compose
-    graphviz
-    neovim
-    docker-machine
-    nmap
-    watchman
-    vagrant-completion
-  )
-
-  casks=(
-    virtualbox
-    virtualbox-extension-pack
-    vagrant
-    sublime-text
-    1password
-    iterm2
-    sketch
-    caskroom/versions/java8
-    android-studio
-    firefox
-    google-chrome
-    tableplus
-    transmit
-    tripmode
-    tower
-  )
-
-  brew doctor
-  brew tap ${taps[@]}
-  brew cask doctor
-  brew cask install ${casks[@]}
-  brew install ${packages[@]}
-  brew install yarn --without-node
-
-  brew prune; brew cleanup
-  brew cask cleanup
-
-  plugins=(
-    elasticsearch
-    golang
-    kotlin
-    kubectl
-    minikube
-    mongodb
-    nodejs
-    packer
-    postgres
-    python
-    redis
-    ruby
-    terraform
-  )
-
+  mkdir -p /usr/local/
   chown -R `whoami`:staff /usr/local/*
 
-  asdf plugin-add ${plugins[@]}
-
-  versions=(
-    "elasticsearch 6.2.4"
-    "golang 1.10.2"
-    "kotlin 1.2.41"
-    "mongodb 3.6.4"
-    "nodejs 6.10.3"
-    "packer 1.2.3"
-    "postgres 10.4"
-    "python 3.6.5"
-    "redis 4.0.9"
-    "ruby 2.5.1"
-    "terraform 0.11.7"
-  )
-
-  asdf install ${versions[@]}
-  asdf global ${versions[@]}
+  ./brew
+  ../asdf
+  ../gem
 
   trimforce enable
 

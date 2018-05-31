@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+if test $(which asdf); then
+
+  git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.5.0
+
+  plugins=(
+    golang
+    kotlin
+    kubectl
+    minikube
+    nodejs
+    python
+    ruby
+  )
+
+  asdf plugin-add ${plugins[@]}
+
+  versions=(
+    "golang 1.10.2"
+    "kotlin 1.2.41"
+    "nodejs 6.10.3"
+    "python 3.6.5"
+    "ruby 2.5.1"
+  )
+
+  asdf install ${versions[@]}
+  asdf global ${versions[@]}
+fi

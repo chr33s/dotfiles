@@ -1,0 +1,78 @@
+#!/usr/bin/env bash
+
+if test ! $(which brew); then
+
+  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+  taps=(
+    caskroom/cask
+  )
+
+  packages=(
+    bash-completion
+    brew-cask-completion
+    docker
+    docker-compose
+    docker-machine
+    go
+    dep
+    elasticsearch
+    git-lfs
+    graphviz
+    gnupg
+    mailhog
+    mariadb
+    mercurial
+    mongodb
+    neovim
+    nmap
+    packer
+    packer-completion
+    plantuml
+    postgres
+    redis
+    rsync
+    sqlite
+    terraform
+    tree
+    vagrant
+    vagrant-completion
+    watchman
+  )
+
+  brew doctor
+  brew tap ${taps[@]}
+  brew install ${packages[@]}
+  brew prune; brew cleanup
+
+  casks=(
+    android-studio
+    1password
+    caskroom/versions/java8
+    firefox
+    google-chrome
+    iterm2
+    sketch
+    sublime-text
+    tableplus
+    transmit
+    tripmode
+    tower
+    vagrant
+    virtualbox
+    virtualbox-extension-pack
+  )
+
+  brew cask doctor
+  brew cask install ${casks[@]}
+  brew install yarn --without-node
+
+  brew cask cleanup
+
+else
+
+  brew update
+  brew upgrade --all
+  brew cleanup
+
+fi

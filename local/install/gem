@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-if test ! $(which gem); then
+if test $(which gem); then
 
   packages=(
     fastlane
