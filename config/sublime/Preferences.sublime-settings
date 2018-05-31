@@ -1,6 +1,7 @@
 {
 	"color_scheme": "Packages/ayu/ayu-light.tmTheme",
 	"create_window_at_startup": false,
+	"enable_hexadecimal_encoding": false,
 	"folder_exclude_patterns":
 	[
 		".git",
