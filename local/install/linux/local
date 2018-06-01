@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+if [ ! -f ${HOME}/.installed ]; then
+
+  ./apt
+  ./conf
+  ../asdf
+  ../gem
+
+  touch ${HOME}/.installed
+
+fi

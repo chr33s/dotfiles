@@ -1,29 +1,37 @@
 #!/usr/bin/env bash
 
-if test $(which asdf); then
+if [ ! -d "${HOME}/.asdf" ]; then
 
-  git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.5.0
+  git clone https://github.com/asdf-vm/asdf.git ${HOME}/.asdf --branch v0.5.0
 
-  plugins=(
-    golang
-    kotlin
-    kubectl
-    minikube
-    nodejs
-    python
-    ruby
-  )
+  chmod +x ${HOME}/.asdf/bin/asdf
+  chmod +x ${HOME}/.asdf/completions/asdf.bash
 
-  asdf plugin-add ${plugins[@]}
+  . ${HOME}/.bash_profile
 
-  versions=(
-    "golang 1.10.2"
-    "kotlin 1.2.41"
-    "nodejs 6.10.3"
-    "python 3.6.5"
-    "ruby 2.5.1"
-  )
-
-  asdf install ${versions[@]}
-  asdf global ${versions[@]}
 fi
+
+plugins=(
+  golang
+  kotlin
+  kubectl
+  minikube
+  nodejs
+  python
+  ruby
+)
+
+asdf plugin-add ${plugins[@]}
+
+bash ~/.asdf/plugins/nodejs/bin/import-release-team-keyring
+
+versions=(
+  "golang 1.10.2"
+  "kotlin 1.2.41"
+  "nodejs 6.10.3"
+  "python 3.6.5"
+  "ruby 2.5.1"
+)
+
+asdf install "${versions[@]}"
+asdf global "${versions[@]}"

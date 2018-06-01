@@ -1,117 +1,17 @@
 #!/usr/bin/env bash
 
-if test ! $(which brew); then
+if [ ! -f ${HOME}/.installed ]; then
 
   sudo -v
   while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
-  pmset -a standbydelay 4200
-  pmset -a destroyfvkeyonstandby 1 hibernatemode 25
-
-  scutil --set ComputerName `whoami`
-  scutil --set HostName `whoami`
-  scutil --set LocalHostName `whoami`
-
-  defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string `whoami`
-  nvram SystemAudioVolume=" "
-
-  /usr/libexec/ApplicationFirewall/socketfilterfw --setglobalstate on || true
-  /usr/libexec/ApplicationFirewall/socketfilterfw --setblockall on || true
-
-  defaults write com.apple.dock mouse-over-hilite-stack -bool true
-  defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
-  defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
-  defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
-  defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
-  defaults write -currentHost NSGlobalDomain com.apple.mouse.tapBehavior -int 1
-  defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
-  defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
-  defaults write com.apple.dock tilesize -int 48
-  defaults write com.apple.dock minimize-to-application -bool true
-  defaults write com.apple.dock enable-spring-load-actions-on-all-items -bool true
-  defaults write com.apple.dock mru-spaces -bool false
-  defaults write com.apple.finder AppleShowAllFiles -bool true
-  defaults write com.apple.screensaver askForPassword -int 1
-  defaults write com.apple.screensaver askForPasswordDelay -int 0
-  defaults write com.apple.Safari HomePage -string "about:blank"
-  defaults write com.apple.Safari ShowFavoritesBar -bool false
-  defaults write com.apple.Safari IncludeInternalDebugMenu -bool true
-  defaults write com.apple.Safari IncludeDevelopMenu -bool true
-  defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
-  defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled -bool true
-  defaults write com.apple.Safari UniversalSearchEnabled -bool false
-  defaults write com.apple.Safari SuppressSearchSuggestions -bool true
-  defaults write com.apple.Safari AutoOpenSafeDownloads -bool false
-  defaults write com.apple.terminal StringEncodings -array 4
-  defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
-  defaults write com.apple.CrashReporter DialogType none
-
-  chflags nohidden ~/Library
-
-  function disable_agent {
-    launchctl unload -w /System/Library/LaunchAgents/com.apple.${1}.plist
-  }
-
-  agents=(
-    AddressBook.AssistantService
-    AddressBook.SourceSync
-    AddressBook.ContactsAccountsService
-    CalendarAgent
-    CallHistoryPluginHelper
-    CallHistorySyncHelper
-    cloudd
-    cloudfamilyrestrictionsd-mac
-    cloudpaird
-    cloudphotosd
-    CloudPhotosConfiguration
-    CoreLocationAgent
-    facebook.xpc
-    findmymacmessenger
-    gamed
-    icloud.fmfd
-    idsremoteurlconnectionagent
-    photolibraryd
-    rtcreportingd
-    SafariCloudHistoryPushAgent
-    safaridavclient
-    SafariNotificationAgent
-    SocialPushAgent
-    syncdefaultsd
-    telephonyutilities.callservicesd
-    weibo.xpc
-  )
-
-  disable_agent ${agents[@]}
-
-  function disable_daemon {
-    launchctl unload -w /System/Library/LaunchDaemons/com.apple.${1}.plist
-  }
-
-  daemons=(
-    CrashReporterSupportHelper
-    GameController.gamecontrollerd
-    SubmitDiagInfo
-  )
-
-  disable_daemon ${daemons[@]}
-
-  pfctl -e -f pf.rules
-
-  softwareupdate -ia
-
-  xcode-select --install
-
-  mkdir -p /usr/local/
-  chown -R `whoami`:staff /usr/local/*
-
+  ./core
   ./brew
   ../asdf
   ../gem
 
+  touch ${HOME}/.installed
+
   trimforce enable
-
-else
-
-  brew update && brew upgrade --all && brew cleanup
 
 fi
