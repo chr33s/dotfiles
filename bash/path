@@ -5,5 +5,5 @@ export PATH=${PATH}:${GOPATH}/bin
 export PATH=${PATH}:/usr/local/opt/go/libexec/bin
 export PATH=${PATH}:${ANDROID_HOME}/tools
 export PATH=${PATH}:${ANDROID_HOME}/platform-tools
-export PATH="${HOME}/.asdf/bin:${HOME}/.asdf/shims:$PATH"
+export PATH="${HOME}/.asdf/bin:${HOME}/.asdf/shims:${PATH}"
 export PATH=${PATH}:`yarn global bin`

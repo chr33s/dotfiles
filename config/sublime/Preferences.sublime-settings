@@ -5,6 +5,9 @@
 	"folder_exclude_patterns":
 	[
 		".git",
+		"dist",
+		".npm-cache",
+		".terraform",
 		"node_modules"
 	],
 	"font_face": "Fira Code",

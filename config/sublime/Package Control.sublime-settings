@@ -18,8 +18,10 @@
 		"Sass",
 		"SublimeLinter",
 		"SublimeLinter-annotations",
+		"SublimeLinter-contrib-semistandard",
 		"SublimeLinter-eslint",
 		"Terraform",
+		"TypeScript",
 		"Vagrant"
 	]
 }

@@ -1,11 +1,3 @@
-prettier
-eslint
-eslint-config-prettier
-eslint-plugin-prettier
-eslint-plugin-react
-eslint-plugin-react-native
-babel-eslint
 react-devtools
 react-native-cli
 react-native-git-upgrade
-svgo

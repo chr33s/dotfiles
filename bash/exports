@@ -10,5 +10,5 @@ export HISTIGNORE=""
 export HISTTIMEFORMAT=" %F %T "
 export HISTCONTROL=ignoreboth:erasedups
 export HOMEBREW_NO_ANALYTICS=1
-export ANDROID_HOME=~/Library/Android/sdk
+export ANDROID_HOME=$HOME/Library/Android/sdk
 export GOPATH=$HOME/go

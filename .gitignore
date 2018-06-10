@@ -6,3 +6,5 @@ config/configstore
 ssh
 gnupg
 private
+**__pycache__**
+local/lib/

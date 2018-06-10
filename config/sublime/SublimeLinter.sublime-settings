@@ -1,16 +1,27 @@
 // SublimeLinter Settings - User
 {
   "linters": {
-      "annotations": {
-          "@disable": false,
-          "args": [],
-          "errors": [
-              "FIXME"
-          ],
-          "excludes": [],
-          "warnings": [
-              "TODO"
-          ]
+    "annotations": {
+      "@disable": false,
+      "args": [],
+      "errors": [
+        "FIXME"
+      ],
+      "excludes": [],
+      "warnings": [
+        "TODO"
+      ]
+    },
+    "eslint": {
+      "disable": true,
+      "env": {
+        "PATH": "~/.asdf/shims:$PATH"
       }
-  },
+    },
+    "semistandard": {
+      "env": {
+        "PATH": "~/.asdf/shims:$PATH"
+      }
+    }
+  }
 }

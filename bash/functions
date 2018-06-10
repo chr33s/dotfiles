@@ -76,3 +76,8 @@ function brew_rm() {
 function dotenv() {
   export $(cat .env | xargs)
 }
+
+function pipx() {
+  pip uninstall $1
+  for dep in $(pip show $1 | grep Requires | sed 's/Requires: //g; s/,//g') ; do pip uninstall -y $dep ; done
+}

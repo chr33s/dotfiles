@@ -1,10 +1,10 @@
 {
 	"auto_format_on_save": true,
-  "auto_format_on_save_requires_prettier_config": true,
 	"auto_format_on_save_excludes": [
 		"*/node_modules/*",
     "*/package.json",
 		"*/dist/*",
     "*.md"
 	],
+  "auto_format_on_save_requires_prettier_config": true
 }
