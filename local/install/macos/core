@@ -49,6 +49,7 @@ if [ ! -f ${HOME}/.installed ]; then
     "com.apple.terminal StringEncodings -array 4"
     "NSGlobalDomain WebKitDeveloperExtras -bool true"
     "com.apple.CrashReporter DialogType none"
+    "com.apple.iTunes dontAutomaticallySyncIPods -integer 1"
   )
 
   set_default "${defaults[@]}"
