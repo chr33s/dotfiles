@@ -29,6 +29,7 @@ packages=(
   gnupg
   mailhog
   mariadb
+  mas
   mercurial
   mongodb
   neovim

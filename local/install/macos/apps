@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+if test $(which mas); then
+
+  apps=(
+    '587748131'   # Claquette
+    '913158085'   # Expressions
+    '1333542190'  # 1Password
+    '1289197285'  # MindNode
+    '405772121'   # LittleIpsum
+    '481981128'   # Gradient
+    '775737590'   # iA Writer
+    '497799835'   # Xcode
+    '409183694'   # Keynote
+    '409201541'   # Pages
+    '409203825'   # Numbers
+  )
+
+  mas install ${apps[@]}
+
+fi
