@@ -6,6 +6,8 @@
 		".firebaserc",
 		".nodemon",
 		".postcssrc",
-		".stylelintrc"
+		".stylelintrc",
+		".huskyrc",
+		".prettierrc"
 	]
 }
