@@ -43,7 +43,7 @@ function server() {
 }
 
 function random() {
-  echo openssl rand -base64 ${1:-32}
+  echo $(openssl rand -base64 ${1:-32})
 }
 
 function spoof() {
