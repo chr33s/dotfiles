@@ -3,3 +3,5 @@ ruby 2.5.1
 python 3.6.5
 kotlin 1.2.41
 golang 1.10.2
+helm 2.10.0
+kubectl 1.11.2
