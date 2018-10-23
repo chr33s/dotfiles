@@ -1,5 +1,6 @@
 .DS_*
 *.swp
+*.bak
 vim/autoload/
 vim/plugged/
 config/configstore
