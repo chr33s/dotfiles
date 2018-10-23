@@ -81,3 +81,19 @@ function pipx() {
   pip uninstall $1
   for dep in $(pip show $1 | grep Requires | sed 's/Requires: //g; s/,//g') ; do pip uninstall -y $dep ; done
 }
+
+function encrypt() {
+  tar -zcvf $1.tar.gz $1 && \
+    openssl enc -aes-256-cbc -salt -in $1.tar.gz -out $1.tar.gz.enc && \
+    rm $1.tar.gz
+}
+
+function decrypt() {
+  openssl enc -aes-256-cbc -d -in $1.tar.gz.enc -out $1.tar.gz && \
+    tar -zxvf $1.tar.gz && \
+    rm $1.tar.gz
+}
+
+function uuid() {
+  uuidgen | tr '[:upper:]' '[:lower:]'
+}
