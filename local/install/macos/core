@@ -4,6 +4,7 @@ if [ ! -f ${HOME}/.installed ]; then
 
   pmset -a standbydelay 4200
   pmset -a destroyfvkeyonstandby 1 hibernatemode 25
+  pmset -a sms 0
 
   scutil --set ComputerName `whoami`
   scutil --set HostName `whoami`
@@ -34,6 +35,7 @@ if [ ! -f ${HOME}/.installed ]; then
     "com.apple.dock minimize-to-application -bool true"
     "com.apple.dock enable-spring-load-actions-on-all-items -bool true"
     "com.apple.dock mru-spaces -bool false"
+    "com.apple.dock persistent-others -array-add '{ \"tile-data\" = { \"list-type\" = 1; }; \"tile-type\" = \"recents-tile\"; }'"
     "com.apple.finder AppleShowAllFiles -bool true"
     "com.apple.screensaver askForPassword -int 1"
     "com.apple.screensaver askForPasswordDelay -int 0"
@@ -50,6 +52,7 @@ if [ ! -f ${HOME}/.installed ]; then
     "NSGlobalDomain WebKitDeveloperExtras -bool true"
     "com.apple.CrashReporter DialogType none"
     "com.apple.iTunes dontAutomaticallySyncIPods -integer 1"
+    "com.apple.TextEdit RichText -int 0"
   )
 
   set_default "${defaults[@]}"

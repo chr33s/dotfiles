@@ -87,4 +87,6 @@ brew cask install "${fonts[@]}"
 
 brew cask cleanup
 
+${HOME}/Library/Google/GoogleSoftwareUpdate/GoogleSoftwareUpdate.bundle/Contents/Resources/ksinstall --nuke
+
 vboxmanage setproperty machinefolder "${HOME}/VMs"
