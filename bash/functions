@@ -97,3 +97,7 @@ function decrypt() {
 function uuid() {
   uuidgen | tr '[:upper:]' '[:lower:]'
 }
+
+function password() {
+  LC_ALL=C tr -dc "[:alnum:]" < /dev/urandom | head -c ${1:-24}
+}
