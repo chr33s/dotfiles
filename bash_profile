@@ -9,3 +9,4 @@ source ~/.bash/exports
 source ~/.bash/functions
 source ~/.bash/path
 source ~/.bash/sources
+source ~/.bash/ps1
