@@ -31,4 +31,4 @@ do
     rm -rf ~/.$file
     ln -s $(pwd)/$file ~/.$file
 done
-
+unset file
