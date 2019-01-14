@@ -101,3 +101,17 @@ function uuid() {
 function password() {
   LC_ALL=C tr -dc "[:alnum:]" < /dev/urandom | head -c ${1:-24}
 }
+
+function json() {
+  if [ -p /dev/stdin ]; then
+    python -mjson.tool
+  else
+    python -mjson.tool <<< "$*"
+  fi
+}
+
+function browsers(){
+  chrome $1
+  firefox $1
+  safari $1
+}
