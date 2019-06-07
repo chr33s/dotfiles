@@ -8,6 +8,7 @@
 		"dist",
 		".cache",
 		".firebase",
+		".keys",
 		".npm-cache",
 		".terraform",
 		"node_modules"
