@@ -59,6 +59,7 @@ casks=(
   google-chrome
   homebrew/cask-fonts/font-fira-code
   iterm2
+  fastlane
   sketch
   sublime-text
   superduper
