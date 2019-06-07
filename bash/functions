@@ -115,3 +115,7 @@ function browsers(){
   firefox $1
   safari $1
 }
+
+function sketchtool() {
+  $(mdfind kMDItemCFBundleIdentifier == 'com.bohemiancoding.sketch3' | head -n 1)/Contents/Resources/sketchtool/bin/sketchtool
+}
