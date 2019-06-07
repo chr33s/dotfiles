@@ -23,13 +23,15 @@ if [ ! -f ${HOME}/.installed ]; then
 
   defaults(
     "/Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string `whoami`"
+    "com.apple.BluetoothAudioAgent \"Apple Bitpool Min (editable)\" -int 40"
     "com.apple.dock mouse-over-hilite-stack -bool true"
-    "NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false"
     'com.apple.print.PrintingPrefs "Quit When Finished" -bool true'
     "com.apple.SoftwareUpdate ScheduleFrequency -int 1"
     "com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true"
     "-currentHost NSGlobalDomain com.apple.mouse.tapBehavior -int 1"
+    "NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false"
     "NSGlobalDomain com.apple.mouse.tapBehavior -int 1"
+    "NSGlobalDomain AppleShowAllExtensions -bool true"
     "com.apple.desktopservices DSDontWriteNetworkStores -bool true"
     "com.apple.dock tilesize -int 48"
     "com.apple.dock minimize-to-application -bool true"
