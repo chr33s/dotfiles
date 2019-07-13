@@ -1,0 +1,98 @@
+{
+	"name": "vscode-mermaid-preview",
+	"displayName": "Mermaid Preview",
+	"description": "Previews Mermaid diagrams in Visual Studio Code",
+	"license": "MIT",
+	"version": "0.12.1",
+	"publisher": "vstirbu",
+	"bugs": {
+		"url": "https://github.com/vstirbu/vscode-mermaid-preview/issues"
+	},
+	"homepage": "https://github.com/vstirbu/vscode-mermaid-preview",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/vstirbu/vscode-mermaid-preview.git"
+	},
+	"icon": "images/logo.png",
+	"galleryBanner": {
+		"color": "#5c2d91",
+		"theme": "dark"
+	},
+	"keywords": [
+		"mermaid",
+		"diagrams",
+		"uml"
+	],
+	"engines": {
+		"vscode": "^1.20.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:mermaidPreview.start"
+	],
+	"main": "./extension",
+	"contributes": {
+		"languages": [
+			{
+				"id": "mermaid",
+				"aliases": [
+					"Mermaid"
+				],
+				"extensions": [
+					".mmd",
+					".mermaid"
+				]
+			}
+		],
+		"configuration": {
+			"type": "object",
+			"title": "Mermaid Preview configuration",
+			"properties": {
+				"mermaid.arrowMarkerAbsolute": {
+					"type": "boolean",
+					"default": false,
+					"description": "Fixes rendering arrowheads"
+				}
+			}
+		},
+		"commands": [
+			{
+				"command": "mermaidPreview.start",
+				"title": "Preview Mermaid"
+			}
+		],
+		"markdown.previewScripts": [
+			"./node_modules/mermaid/dist/mermaid.min.js",
+			"./markdown-it-preview.js"
+		],
+		"markdown.markdownItPlugins": true
+	},
+	"scripts": {
+		"postinstall": "node ./node_modules/vscode/bin/install",
+		"test": "node ./node_modules/vscode/bin/test"
+	},
+	"dependencies": {
+		"d3": "^4.13.0",
+		"font-awesome": "^4.7.0",
+		"lodash": "^4.17.4",
+		"mermaid": "^8.1.0"
+	},
+	"devDependencies": {
+		"vscode": "^1.1.30"
+	},
+	"greenkeeper": {
+		"ignore": [
+			"@types/node"
+		]
+	},
+	"extensionPack": [
+		"bpruitt-goddard.mermaid-markdown-syntax-highlighting"
+	],
+	"__metadata": {
+		"id": "b7b3f8c2-0526-4262-9e55-045c954adac4",
+		"publisherId": "aafbf1ca-4f27-4b81-ad83-f68740a598a3",
+		"publisherDisplayName": "Vlad Stirbu"
+	}
+}

@@ -23,6 +23,8 @@ files=(
     'default-npm-packages'
     'npmrc'
     'yarnrc'
+    'vscode'
+    'vscode-react-native'
 )
 
 for file in "${files[@]}"
