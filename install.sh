@@ -16,7 +16,6 @@ files=(
     'gnupg'
     'ssh'
     'editorconfig'
-    'eslintrc'
     'gemrc'
     'my.cnf'
     'hushlogin'

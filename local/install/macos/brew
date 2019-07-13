@@ -17,35 +17,20 @@ taps=(
 brew tap ${taps[@]}
 
 packages=(
-  bash-completion
-  brew-cask-completion
-  coreutils
   docker
   docker-machine
-  dep
-  elasticsearch
-  git-lfs
-  graphviz
   gnupg
-  mailhog
-  mariadb
-  mas
   mercurial
-  mongodb
-  neovim
-  nmap
+  mysql@5.7
   packer
   packer-completion
-  plantuml
-  postgres
-  redis
+  postgresql@9.6
+  redis@4.0
   rsync
   sqlite
   terraform
-  tree
-  vagrant-completion
   watchman
-  "yarn --without-node"
+  yarn
 )
 
 brew install "${packages[@]}"
@@ -56,8 +41,6 @@ casks=(
   1password
   caskroom/versions/java8
   firefox
-  google-chrome
-  homebrew/cask-fonts/font-fira-code
   iterm2
   fastlane
   sketch
@@ -87,7 +70,5 @@ fonts=(
 brew cask install "${fonts[@]}"
 
 brew cask cleanup
-
-${HOME}/Library/Google/GoogleSoftwareUpdate/GoogleSoftwareUpdate.bundle/Contents/Resources/ksinstall --nuke
 
 vboxmanage setproperty machinefolder "${HOME}/VMs"

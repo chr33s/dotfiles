@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+if [ ! -d "${HOME}/.asdf" ]; then
+
+  deps=(
+    coreutils
+    automake
+    autoconf
+    openssl
+    libyaml
+    readline
+    libxslt
+    libtool
+    unixodbc
+    unzip
+    curl
+  )
+
+  brew install "${deps[@]}"
+
+fi

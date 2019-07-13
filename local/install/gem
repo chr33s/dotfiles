@@ -3,6 +3,7 @@
 if test $(which gem); then
 
   packages=(
+    cocoapods
     fastlane
   )
 

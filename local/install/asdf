@@ -2,6 +2,11 @@
 
 if [ ! -d "${HOME}/.asdf" ]; then
 
+  if [[ "$OSTYPE" == "darwin"* ]]; then
+    ./macosx/asdf
+  fi
+
+
   git clone https://github.com/asdf-vm/asdf.git ${HOME}/.asdf --branch v0.5.0
 
   chmod +x ${HOME}/.asdf/bin/asdf
@@ -13,12 +18,8 @@ fi
 
 plugins=(
   golang
-  kotlin
-  kubectl
-  minikube
   nodejs
   python
-  ruby
 )
 
 asdf plugin-add ${plugins[@]}
@@ -26,11 +27,9 @@ asdf plugin-add ${plugins[@]}
 bash ~/.asdf/plugins/nodejs/bin/import-release-team-keyring
 
 versions=(
-  "golang 1.10.2"
-  "kotlin 1.2.41"
-  "nodejs 6.10.3"
-  "python 3.6.5"
-  "ruby 2.5.1"
+  "golang 1.10.10"
+  "nodejs 8.15.0"
+  "python 2.7.16"
 )
 
 asdf install "${versions[@]}"

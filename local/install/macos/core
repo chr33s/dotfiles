@@ -23,30 +23,21 @@ if [ ! -f ${HOME}/.installed ]; then
 
   defaults(
     "/Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string `whoami`"
-    "com.apple.BluetoothAudioAgent \"Apple Bitpool Min (editable)\" -int 40"
     "com.apple.dock mouse-over-hilite-stack -bool true"
     'com.apple.print.PrintingPrefs "Quit When Finished" -bool true'
-    "com.apple.SoftwareUpdate ScheduleFrequency -int 1"
     "com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true"
     "-currentHost NSGlobalDomain com.apple.mouse.tapBehavior -int 1"
     "NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false"
     "NSGlobalDomain com.apple.mouse.tapBehavior -int 1"
     "NSGlobalDomain AppleShowAllExtensions -bool true"
     "com.apple.desktopservices DSDontWriteNetworkStores -bool true"
-    "com.apple.dock tilesize -int 48"
     "com.apple.dock minimize-to-application -bool true"
     "com.apple.dock enable-spring-load-actions-on-all-items -bool true"
     "com.apple.dock mru-spaces -bool false"
-    "com.apple.dock persistent-others -array-add '{ \"tile-data\" = { \"list-type\" = 1; }; \"tile-type\" = \"recents-tile\"; }'"
     "com.apple.finder AppleShowAllFiles -bool true"
-    "com.apple.screensaver askForPassword -int 1"
-    "com.apple.screensaver askForPasswordDelay -int 0"
     'com.apple.Safari HomePage -string "about:blank"'
     "com.apple.Safari ShowFavoritesBar -bool false"
-    "com.apple.Safari IncludeInternalDebugMenu -bool true"
     "com.apple.Safari IncludeDevelopMenu -bool true"
-    "com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true"
-    "com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled -bool true"
     "com.apple.Safari UniversalSearchEnabled -bool false"
     "com.apple.Safari SuppressSearchSuggestions -bool true"
     "com.apple.Safari AutoOpenSafeDownloads -bool false"
@@ -58,53 +49,6 @@ if [ ! -f ${HOME}/.installed ]; then
   )
 
   set_default "${defaults[@]}"
-
-  function disable_agent {
-    launchctl unload -w /System/Library/LaunchAgents/com.apple.${1}.plist
-  }
-
-  agents=(
-    AddressBook.AssistantService
-    AddressBook.SourceSync
-    AddressBook.ContactsAccountsService
-    CalendarAgent
-    CallHistoryPluginHelper
-    CallHistorySyncHelper
-    cloudd
-    cloudfamilyrestrictionsd-mac
-    cloudpaird
-    cloudphotosd
-    CloudPhotosConfiguration
-    CoreLocationAgent
-    facebook.xpc
-    findmymacmessenger
-    gamed
-    icloud.fmfd
-    idsremoteurlconnectionagent
-    photolibraryd
-    rtcreportingd
-    SafariCloudHistoryPushAgent
-    safaridavclient
-    SafariNotificationAgent
-    SocialPushAgent
-    syncdefaultsd
-    telephonyutilities.callservicesd
-    weibo.xpc
-  )
-
-  disable_agent ${agents[@]}
-
-  function disable_daemon {
-    launchctl unload -w /System/Library/LaunchDaemons/com.apple.${1}.plist
-  }
-
-  daemons=(
-    CrashReporterSupportHelper
-    GameController.gamecontrollerd
-    SubmitDiagInfo
-  )
-
-  disable_daemon ${daemons[@]}
 
   pfctl -e -f pf.rules
 
