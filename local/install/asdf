@@ -18,6 +18,7 @@ fi
 
 plugins=(
   golang
+  java
   nodejs
   python
 )
@@ -28,6 +29,7 @@ bash ~/.asdf/plugins/nodejs/bin/import-release-team-keyring
 
 versions=(
   "golang 1.10.10"
+  "java adoptopenjdk-8.212"
   "nodejs 8.15.0"
   "python 2.7.16"
 )

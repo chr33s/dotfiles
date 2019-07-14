@@ -12,6 +12,7 @@ brew doctor
 
 taps=(
   caskroom/cask
+  AdoptOpenJDK/openjdk
 )
 
 brew tap ${taps[@]}
@@ -37,9 +38,9 @@ brew install "${packages[@]}"
 brew prune; brew cleanup
 
 casks=(
+  adoptopenjdk8
   android-studio
   1password
-  caskroom/versions/java8
   firefox
   iterm2
   fastlane
