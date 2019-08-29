@@ -6,4 +6,8 @@ function _parse_git_branch() {
   [[ -n $(git branch 2> /dev/null) ]] && git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1$(_parse_git_dirty)/"
 }
 
-export PS1="\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h\[\033[m\]:\[\033[33;1m\]\W\[\033[m\] \[\033[91m\](\$(_parse_git_branch))\[\033[37m\] $\[\033[m\] "
+if [[ $0 == '-bash' || $0 == '/bin/bash' ]]; then
+    export PS1="\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h\[\033[m\]:\[\033[33;1m\]\W\[\033[m\] \[\033[91m\](\$(_parse_git_branch))\[\033[m\] $\[\033[m\] "
+else
+    export PROMPT="$ "
+fi
