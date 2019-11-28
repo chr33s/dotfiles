@@ -8,9 +8,9 @@ if !has('nvim')
     set cryptmethod=blowfish2
 endif
 set expandtab
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 set smarttab
 set autoindent
 set laststatus=2
@@ -32,7 +32,7 @@ set tags=tags;
 set mouse=a
 
 set t_Co=256
-" set termguicolors
+set termguicolors
 
 " Clear highlighting on escape in normal mode
 nnoremap <esc> :noh<return><esc>
@@ -49,14 +49,6 @@ map <C-w> :tabclose<cr>
 
 " Ctrl-D opens a shell.
 nmap <silent> <C-D> :shell<CR>
-
-" force two spaces indentation
-autocmd Filetype html setlocal ts=2 sts=2 sw=2
-autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
-autocmd Filetype eruby setlocal ts=2 sts=2 sw=2
-autocmd Filetype c setlocal ts=2 sts=2 sw=2
-autocmd Filetype cpp setlocal ts=2 sts=2 sw=2
-autocmd Filetype js setlocal ts=2 sts=2 sw=2
 
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -80,15 +72,23 @@ Plug 'hashivim/vim-packer'
 Plug 'sheerun/vim-polyglot'
 Plug 'prettier/vim-prettier'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'Yggdroot/indentLine'
 
 call plug#end()
 
 let g:prettier#config#semi = 'false'
 let g:prettier#config#singleQuote = 'true'
 
-let g:airline_theme='hybrid'
+let g:airline_theme='ayu'
 let g:netrw_list_hide='.DS_Store'
 
-set termguicolors
+set background=light
 let ayucolor='light'
 colorscheme ayu
+" IndentLine {{
+let g:indentLine_char = ''
+let g:indentLine_first_char = ''
+let g:indentLine_showFirstIndentLevel = 1
+let g:indentLine_setColors = 0
+" }}

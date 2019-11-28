@@ -11,3 +11,4 @@ export HISTCONTROL=ignoreboth:erasedups
 export HOMEBREW_NO_ANALYTICS=1
 export ANDROID_HOME=$HOME/Library/Android/sdk
 export GOPATH=$HOME/go
+export LC_ALL=en_GB.UTF-8
