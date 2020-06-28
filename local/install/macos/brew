@@ -38,21 +38,25 @@ brew install "${packages[@]}"
 brew prune; brew cleanup
 
 casks=(
+  1password
   adoptopenjdk8
   android-studio
-  1password
+  chromium
+  dash
+  fastlane
   firefox
+  flipper
+  fork
   iterm2
   sketch
-  sublime-text
   superduper
   tableplus
   transmit
   tripmode
-  tower
   vagrant
   virtualbox
   virtualbox-extension-pack
+  visual-studio-code
 )
 
 brew cask doctor
