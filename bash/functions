@@ -31,6 +31,7 @@ function scrub() {
   if [ -f $1 ] && [[ "$1" == *.zip ]] ; then
     zip -qd $1 __MACOSX/\*
     zip -qd $1 \*/.DS_Store
+    unzip -vl $1
   else
     echo "'$1' invalid file"
   fi
@@ -43,7 +44,7 @@ function server() {
 }
 
 function random() {
-  echo $(openssl rand -base64 ${1:-32})
+  echo $(openssl rand -${2:-base64} ${1:-32})
 }
 
 function spoof() {
@@ -60,11 +61,6 @@ function todo() {
 
 function rm_ds_store() {
   find ${PWD} -name ".DS_Store" -depth -exec rm {} \;
-}
-
-function fix_n() {
-  sudo /usr/libexec/ApplicationFirewall/socketfilterfw --remove /usr/local/bin/node || true
-  sudo /usr/libexec/ApplicationFirewall/socketfilterfw --add /usr/local/bin/node || true
 }
 
 function brew_rm() {
