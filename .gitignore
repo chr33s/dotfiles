@@ -1,0 +1,9 @@
+.DS_*
+*.swp
+*.bak
+vim/*
+vim/!init.vim
+ssh/*
+ssh/!config
+gnupg/*
+gnupg/!gpg.conf

@@ -1,0 +1,47 @@
+{
+  "breadcrumbs.enabled": false,
+  "debug.showInStatusBar": "always",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "source.fixAll.stylelint": true
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.formatOnSaveTimeout": 250,
+  "editor.fontFamily": "FiraCode-Retina, Menlo, Monaco, 'Courier New', monospace",
+  "editor.fontLigatures": true,
+  "editor.fontSize": 13,
+  "editor.fontWeight": "500",
+  "editor.lineHeight": 22,
+  "editor.renderWhitespace": "all",
+  "editor.tabSize": 2,
+  "editor.trimAutoWhitespace": false,
+  "eslint.alwaysShowStatus": true,
+  "explorer.confirmDelete": false,
+  "files.associations": {
+    ".firebaserc": "json"
+  },
+  "files.exclude": {
+    "**/.classpath": true,
+    "**/.project": true,
+    "**/.settings": true,
+    "**/.factorypath": true
+  },
+  "git.autofetch": true,
+  "git.enableSmartCommit": true,
+  "java.autobuild.enabled": false,
+  "prettier.requireConfig": true,
+  "search.exclude": {
+    ".cache": false,
+    "**/dist": false,
+    "**/node_modules": false
+  },
+  "telemetry.enableTelemetry": false,
+  "telemetry.enableCrashReporter": false,
+  "terminal.integrated.fontSize": 13,
+  "window.nativeFullScreen": true,
+  "window.restoreWindows": "all",
+  "window.title": "${rootName}",
+  "workbench.colorTheme": "Ayu Light Bordered",
+  "workbench.startupEditor": "newUntitledFile"
+}

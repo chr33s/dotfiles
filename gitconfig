@@ -1,0 +1,62 @@
+[alias]
+  clear= clean -f -d
+  last = log -1 HEAD
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+  rename = ~/.local/bin/git-rename
+  undo = reset --soft HEAD~1
+[apply]
+  whitespace = fix
+[branch]
+  autosetuprebase = always
+[color]
+  ui = true
+[color "status"]
+  untracked = cyan
+[commit]
+  gpgsign = true
+[core]
+  autocrlf = input
+  excludesfile = ~/.gitignore
+  trustctime = false
+  untrackedCache = true
+  whitespace = space-before-tab,-indent-with-non-tab,trailing-space
+[credential]
+  helper = osxkeychain
+[diff]
+  tool = vimdiff
+[difftool]
+  prompt = false
+[fetch]
+  fsckobjects = true
+[filter "lfs"]
+  clean = git lfs clean -- %f
+  smudge = git lfs smudge -- %f
+  required = true
+  process = git-lfs filter-process
+[gpg]
+  program = /opt/homebrew/bin/gpg
+[merge]
+  log = true
+  tool = vimdiff
+[mergetool]
+  keepBackup = false
+  prompt = false
+[pull]
+  rebase = true
+[push]
+  default = current
+  followTags = true
+[receive]
+  fsckObjects = true
+[transfer]
+  fsckobjects = true
+[url "ssh://git@github.com/"]
+  insteadOf = https://github.com/
+[url "ssh://git@gitlab.com/"]
+  insteadOf = https://gitlab.com/
+[url "ssh://git@bitbucket.org/"]
+  insteadOf = https://bitbucket.org/
+[user]
+  email = chr33s@icloud.com
+  name = chris
+  user = chr33s

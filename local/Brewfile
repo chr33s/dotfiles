@@ -1,0 +1,29 @@
+tap "caskroom/cask"
+
+brew "asdf"
+brew "git"
+brew "gnupg"
+brew "mercurial"
+brew "node@12"
+brew "rsync"
+brew "watchman"
+
+cask "android-studio"
+cask "firefox"
+cask "font-fira-code"
+cask "font-fira-code-nerd-font"
+cask "fork"
+cask "google-chrome"
+cask "sketch"
+cask "tableplus"
+cask "transmit"
+cask "tripmode"
+cask "visual-studio-code"
+
+mas "1Password7", id: 1333542190
+mas "iA Writer ", id: 775737590
+mas "Keynote", id: 409183694
+mas "Mindnode", id: 1289197285
+mas "Numbers", id: 409203825
+mas "Pages", id: 409201541
+mas "Xcode", id: 497799835
