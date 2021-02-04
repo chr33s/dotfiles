@@ -92,3 +92,24 @@ let g:indentLine_first_char = ''
 let g:indentLine_showFirstIndentLevel = 1
 let g:indentLine_setColors = 0
 " }}
+
+function! SetBackgroundMode(...)
+  let s:background = 'light'
+  if $TERM_PROGRAM ==? 'Apple_Terminal'
+    let s:mode = systemlist('defaults read -g AppleInterfaceStyle')
+    if len(s:mode) != 0 && s:mode[0] == 'Dark'
+      let s:background = 'dark'
+    endif
+
+    if &background !=? s:background
+      let &background = s:background
+    endif
+
+    if g:ayucolor !=? s:background
+      let g:ayucolor = s:background
+    endif
+  endif
+endfunction
+
+call SetBackgroundMode()
+call timer_start(30000, "SetBackgroundMode", {"repeat": -1})

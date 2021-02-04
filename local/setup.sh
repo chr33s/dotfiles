@@ -31,6 +31,7 @@ if test ! $(which brew); then
     "com.apple.CrashReporter DialogType none"
     "com.apple.iTunes dontAutomaticallySyncIPods -integer 1"
     "com.apple.TextEdit RichText -int 0"
+    "-g AppleInterfaceStyleSwitchesAutomatically -bool true"
   )
   defaults write "${defaults[@]}"
 
