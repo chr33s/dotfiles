@@ -6,6 +6,7 @@ export ANDROID_HOME=$HOME/Library/Android/sdk
 export CLICOLOR=1
 export COPYFILE_DISABLE=true
 export EDITOR="vim" # | code
+export VISUAL="vim"
 export GOPATH=$HOME/go
 export HOMEBREW_NO_ANALYTICS=1
 export LSCOLORS=ExGxBxDxCxEgEdxbxgxcxd
