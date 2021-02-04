@@ -32,6 +32,8 @@ function setTheme() {
 }
 
 function SetBackgroundMode() {
+  [[ "${TERM_PROGRAM}" != "Apple_Terminal"] && return
+
   MODE=$(defaults read -g AppleInterfaceStyle 2>/dev/null || echo "Light")
   if [[ ${MODE} = "Dark" ]]; then
     setTheme "ayu_dark"
