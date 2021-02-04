@@ -41,20 +41,5 @@ function SetBackgroundMode() {
 }
 
 SetBackgroundMode
-
-PID_FILE=${HOME}/.zsh/.pid
-function setBackgroundModeProcess() {
-  if [[ -f "${PID_FILE}" ]]; then
-    PID=$(<"${PID_FILE}")
-    if ps -p "${PID}" > /dev/null; then
-      return
-    fi
-  fi
-
-  while sleep 30; do SetBackgroundMode; done &
-  echo $! > ${PID_FILE}
-
-  clear
-}
-
-setBackgroundModeProcess
+while sleep 30; do SetBackgroundMode; done &
+clear
