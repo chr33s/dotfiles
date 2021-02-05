@@ -36,7 +36,7 @@ if test ! $(which brew); then
   defaults write "${defaults[@]}"
 
   macos-hidden-show
-  chflags -h nohidden $HOME/Library
+  chflags -h nohidden ${HOME}/Library
 
   /usr/libexec/ApplicationFirewall/socketfilterfw --setglobalstate on || true
   /usr/libexec/ApplicationFirewall/socketfilterfw --setblockall on || true
@@ -65,7 +65,7 @@ if test ! $(which brew); then
   )
   asdf plugin-add ${plugins[@]}
 
-  bash -c '${ASDF_DATA_DIR:=$HOME/.asdf}/plugins/nodejs/bin/import-release-team-keyring'
+  bash -c '${ASDF_DATA_DIR:=${HOME}/.asdf}/plugins/nodejs/bin/import-release-team-keyring'
 
   versions=$(< ${PWD}/tool-versions)  
   asdf install "${versions[@]}"

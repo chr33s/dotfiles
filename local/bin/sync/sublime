@@ -3,13 +3,13 @@
 # sublimesync <copy>|<link>
 
 CMD=${1:-copy}
-DEST="$HOME/.config/sublime"
+DEST="${HOME}/.config/sublime"
 
 case "$OSTYPE" in
   darwin*)
-    SRC="$HOME/Library/Application Support/Sublime Text 3/Packages/User" ;;
+    SRC="${HOME}/Library/Application Support/Sublime Text 3/Packages/User" ;;
   linux*)
-    SRC="$HOME/.config/sublime-text-3/Packages/User" ;;
+    SRC="${HOME}/.config/sublime-text-3/Packages/User" ;;
 esac
 
 case "$CMD" in
