@@ -1,0 +1,27 @@
+#!/usr/bin/env zsh
+
+if [[ -d "${HOME}/.zsh/pure" ]]; then
+  fpath+=${HOME}/.zsh/pure
+  autoload -U promptinit; promptinit
+  zstyle :prompt:pure:git:fetch only_upstream yes
+  zstyle :prompt:pure:git:stash show yes
+  prompt pure
+fi
+
+if [[ -d "${HOME}/.zsh/zsh-syntax-highlighting" ]]; then
+  . ${HOME}/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
+
+if [[ -d "${HOME}/.zsh/zsh-autosuggestions" ]]; then
+  . ${HOME}/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+fi
+
+if [[ -d "${HOME}/.zsh/zsh-history-substring-search" ]]; then
+  . ${HOME}/.zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
+  bindkey '^[[A' history-substring-search-up
+  bindkey '^[[B' history-substring-search-down
+fi
+
+if [[ -d "${HOME}/.asdf" ]]; then
+  . $(brew --prefix asdf)/asdf.sh
+fi

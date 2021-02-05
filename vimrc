@@ -31,8 +31,10 @@ set foldlevel=7
 set tags=tags;
 set mouse=a
 
-set t_Co=256
 set termguicolors
+if !has('gui_running')
+  set t_Co=256
+endif
 
 " Clear highlighting on escape in normal mode
 nnoremap <esc> :noh<return><esc>
@@ -63,8 +65,7 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 call plug#begin()
 
 Plug 'https://github.com/Luxed/ayu-vim.git'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'itchyny/lightline.vim'
 if !has('nvim')
     Plug 'tpope/vim-sensible'
 endif
@@ -77,6 +78,7 @@ Plug 'eslint/eslint'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'Yggdroot/indentLine'
+Plug 'ap/vim-readdir'
 
 call plug#end()
 
@@ -86,9 +88,10 @@ let g:prettier#config#singleQuote = 'true'
 let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 let g:ctrlp_use_caching = 1
 
-let g:airline_theme='ayu'
 let g:netrw_list_hide='.DS_Store'
+let g:loaded_netrwPlugin=1
 
+set noshowmode
 set background=light
 colorscheme ayu
 " IndentLine {{
@@ -98,6 +101,7 @@ let g:indentLine_showFirstIndentLevel = 1
 let g:indentLine_setColors = 0
 let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 " }}
+let g:lightline = { 'colorscheme': 'wombat' }
 
 function! SetBackgroundMode(...)
   let s:background = 'light'
