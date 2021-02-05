@@ -7,6 +7,7 @@ brew "macos-trash"
 brew "mercurial"
 brew "node@12"
 brew "rsync"
+brew "tree"
 brew "watchman"
 
 cask "android-studio"
