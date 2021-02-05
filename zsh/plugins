@@ -9,6 +9,7 @@ if zplug check "zsh-users/zsh-history-substring-search"; then
   bindkey '^[[A' history-substring-search-up
   bindkey '^[[B' history-substring-search-down
 fi
+zplug "plugins/dotenv", from:oh-my-zsh
 zplug "mafredri/zsh-async", from:github
 zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
 if zplug check "sindresorhus/pure"; then

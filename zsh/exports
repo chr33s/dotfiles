@@ -14,6 +14,7 @@ export NODE_TLS_REJECT_UNAUTHORIZED="0"
 export PATH=${HOME}/.local/bin:$PATH:./bin:./.bin:./node_modules/.bin:${GOPATH}/bin
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 export TERM=xterm-256color
+export ZSH_DOTENV_PROMPT=false
 export ZPLUG_HOME=${HOME}/.zplug
 
 if [[ -d "${HOME}/.asdf" ]]; then
