@@ -104,8 +104,8 @@ let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 let g:lightline = { 'colorscheme': 'wombat' }
 
 function! SetBackgroundMode(...)
-  let s:background = 'light'
   if $TERM_PROGRAM ==? 'Apple_Terminal'
+    let s:background = 'light'
     let s:mode = systemlist('defaults read -g AppleInterfaceStyle')
     if len(s:mode) != 0 && s:mode[0] == 'Dark'
       let s:background = 'dark'
