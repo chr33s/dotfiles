@@ -30,6 +30,8 @@ set foldmethod=syntax
 set foldlevel=7
 set tags=tags;
 set mouse=a
+set listchars=tab:>·,space:·
+set list
 
 set termguicolors
 if !has('gui_running')
