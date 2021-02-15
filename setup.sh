@@ -25,5 +25,5 @@ do
 done
 unset file
 
-./zsh/setup
-./vscode/setup
+./zsh/setup.zsh
+./vscode/setup.sh

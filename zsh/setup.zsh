@@ -1,4 +1,4 @@
 #!/usr/bin/env zsh
 
-. ./exports
+source ./exports
 git clone https://github.com/zplug/zplug $ZPLUG_HOME

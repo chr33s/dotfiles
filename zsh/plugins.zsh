@@ -1,5 +1,3 @@
-#!/usr/bin/env zsh
-
 source ${HOME}/.zplug/init.zsh
 
 zplug "zsh-users/zsh-syntax-highlighting"

@@ -3,10 +3,10 @@
 setopt append_history share_history histignorealldups
 bindkey -e
 
-. ${HOME}/.zsh/exports
-. ${HOME}/.zsh/aliases
-. ${HOME}/.zsh/functions
-. ${HOME}/.zsh/plugins
-. ${HOME}/.zsh/theme
+source ${HOME}/.zsh/exports.zsh
+source ${HOME}/.zsh/aliases.zsh
+source ${HOME}/.zsh/functions.zsh
+source ${HOME}/.zsh/plugins.zsh
+source ${HOME}/.zsh/theme.zsh
 
 clear

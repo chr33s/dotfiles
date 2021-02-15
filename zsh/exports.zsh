@@ -1,5 +1,3 @@
-#!/usr/bin/env zsh
-
 export LANG="en_GB.UTF-8"
 
 export ANDROID_HOME=${HOME}/Library/Android/sdk
@@ -18,5 +16,5 @@ export ZSH_DOTENV_PROMPT=false
 export ZPLUG_HOME=${HOME}/.zplug
 
 if [[ -d "${HOME}/.asdf" ]]; then
-  . $(brew --prefix asdf)/asdf.sh
+  source $(brew --prefix asdf)/asdf.sh
 fi
