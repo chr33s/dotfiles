@@ -15,6 +15,8 @@ export TERM=xterm-256color
 export ZSH_DOTENV_PROMPT=false
 export ZPLUG_HOME=${HOME}/.zplug
 
-if [[ -d "${HOME}/.asdf" ]]; then
+if [ -f "$HOME/.asdf/asdf.sh" ]; then
+  source "$HOME/.asdf/asdf.sh"
+elif brew --prefix asdf >/dev/null; then
   source $(brew --prefix asdf)/asdf.sh
 fi
