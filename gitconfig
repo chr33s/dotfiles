@@ -28,6 +28,7 @@
   prompt = false
 [fetch]
   fsckobjects = true
+  prune = true
 [filter "lfs"]
   clean = git lfs clean -- %f
   smudge = git lfs smudge -- %f
@@ -35,6 +36,8 @@
   process = git-lfs filter-process
 [gpg]
   program = /opt/homebrew/bin/gpg
+[init]
+  defaultBranch = main
 [merge]
   log = true
   tool = vimdiff
@@ -46,6 +49,8 @@
 [push]
   default = current
   followTags = true
+[rebase]
+  autosquash = true
 [receive]
   fsckObjects = true
 [transfer]
