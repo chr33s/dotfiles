@@ -12,9 +12,9 @@ function SetBackgroundMode() {
 
   MODE=$(defaults read -g AppleInterfaceStyle 2>/dev/null || echo "Light")
   if [[ ${MODE} = "Dark" ]]; then
-    setTheme "ayu_dark"
+    setTheme "github_dark"
   else
-    setTheme "ayu_light"
+    setTheme "github_light"
   fi
 }
 

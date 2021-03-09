@@ -37,7 +37,6 @@
   },
   "telemetry.enableTelemetry": false,
   "telemetry.enableCrashReporter": false,
-  "terminal.fontLigatures": true,
   "terminal.integrated.fontFamily": "'FiraCode Nerd Font Mono Retina', Menlo, Monaco, 'Courier New', monospace",
   "terminal.integrated.fontSize": 13,
   "terminal.integrated.fontWeight": "500",
@@ -45,8 +44,8 @@
   "window.nativeFullScreen": true,
   "window.restoreWindows": "all",
   "window.title": "${rootName}",
-  "workbench.colorTheme": "Ayu Light Bordered",
-  "workbench.preferredDarkColorTheme": "Ayu Dark Bordered",
-  "workbench.preferredLightColorTheme": "Ayu Light Bordered",
+  "workbench.colorTheme": "GitHub Light",
+  "workbench.preferredDarkColorTheme": "GitHub Dark",
+  "workbench.preferredLightColorTheme": "GitHub Light",
   "workbench.startupEditor": "newUntitledFile"
 }
