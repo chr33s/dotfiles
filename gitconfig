@@ -23,6 +23,7 @@
 [credential]
   helper = osxkeychain
 [diff]
+  colorMoved = zebra
   tool = vimdiff
 [difftool]
   prompt = false
@@ -65,3 +66,5 @@
   email = chr33s@icloud.com
   name = chris
   user = chr33s
+# [includeIf "gitdir:~/Code/work/"]
+#	path = ~/Code/work/.gitconfig
