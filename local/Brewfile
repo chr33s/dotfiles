@@ -10,6 +10,7 @@ brew "mercurial"
 brew "node"
 brew "rsync"
 brew "tree"
+brew "yarn"
 brew "watchman"
 
 cask "android-studio"
