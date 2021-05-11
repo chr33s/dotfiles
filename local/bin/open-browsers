@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+
+function open-browsers(){
+  chrome $1
+  edge $1
+  firefox $1
+  safari $1
+}
+
+open-browsers
+

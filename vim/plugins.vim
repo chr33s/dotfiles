@@ -10,7 +10,7 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 
 call plug#begin()
 
-Plug 'https://github.com/Luxed/ayu-vim.git'
+Plug 'cormacrelf/vim-colors-github'
 Plug 'itchyny/lightline.vim'
 if !has('nvim')
     Plug 'tpope/vim-sensible'
@@ -39,14 +39,14 @@ let g:loaded_netrwPlugin=1
 
 set noshowmode
 set background=light
-colorscheme ayu
+colorscheme github
 " IndentLine {{
 let g:indentLine_char = ''
 let g:indentLine_first_char = ''
 let g:indentLine_showFirstIndentLevel = 1
 let g:indentLine_setColors = 0
 " }}
-let g:lightline = { 'colorscheme': 'ayu' }
+let g:lightline = { 'colorscheme': 'github' }
 
 function! SetBackgroundMode(...)
   if $TERM_PROGRAM ==? 'Apple_Terminal'

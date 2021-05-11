@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+
+function dotenv() {
+  export $(cat .env | xargs)
+}
+
+dotenv

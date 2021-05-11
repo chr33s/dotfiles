@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+
+function decrypt() {
+  openssl enc -aes-256-cbc -d -in $1.tar.gz.enc -out $1.tar.gz && \
+    tar -zxvf $1.tar.gz && \
+    rm $1.tar.gz
+}
+
+decrypt

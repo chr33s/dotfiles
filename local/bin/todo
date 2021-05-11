@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+
+function todo() {
+  find ./ -type f -print | xargs grep 'TODO\|FIXME\|IDEA'
+}
+
+todo

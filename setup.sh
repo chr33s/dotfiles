@@ -1,21 +1,21 @@
 #!/usr/bin/env sh
 
 files=(
-  "vim"
-  "vimrc"
-  "screenrc"
-  "local"
-  "gitconfig"
-  "gitignore"
   "curlrc"
-  "gnupg"
-  "ssh"
   "editorconfig"
   "gemrc"
-  "tool-versions"
+  "gitconfig"
+  "gitignore"
+  "gnupg"
+  "local"
   "npmrc"
+  "screenrc"
+  "ssh"
+  "tool-versions"
   "zsh"
   "zshrc"
+  "vim"
+  "vimrc"
 )
 
 for file in "${files[@]}"

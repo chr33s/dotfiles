@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+
+function pretty-json() {
+  if [ -p /dev/stdin ]; then
+    python -mjson.tool
+  else
+    python -mjson.tool <<< "$*"
+  fi
+}
+
+pretty-json

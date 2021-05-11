@@ -2,7 +2,7 @@
   clear= clean -f -d
   last = log -1 HEAD
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-  rename = ~/.local/bin/git-rename
+  rename = git-rename
   undo = reset --soft HEAD~1
 [apply]
   whitespace = fix

@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+
+function tre(){
+  tree -aC -I '.git|node_modules|bower_components|.DS_Store' --dirsfirst "$@"
+}
+
+tre

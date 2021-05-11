@@ -15,9 +15,9 @@ if zplug check "sindresorhus/pure"; then
   zstyle :prompt:pure:git:stash show yes
 fi
 zplug "zsh-hooks/zsh-hooks"
-zplug "~/.zsh", from:local
-zplug 'zplug/zplug', hook-build:'zplug --self-manage'
+# zplug "~/.zsh", from:local
+# zplug 'zplug/zplug', hook-build:'zplug --self-manage'
 if ! zplug check --verbose; then
   zplug install
 fi
-zplug load
+zplug load # --verbose

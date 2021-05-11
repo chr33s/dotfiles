@@ -46,40 +46,25 @@ if test ! $(which brew); then
   # Brew
 
   xcode-select --install
-  sudo xcodebuild -license
+  xcodebuild -license
 
   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   brew doctor
   brew install mas
   mas signin
   brew bundle
-
-  # ASDF
-
-  plugins=(
-    golang
-    java
-    nodejs
-    python
-    ruby
-  )
-  asdf plugin-add ${plugins[@]}
-
-  bash -c '${ASDF_DATA_DIR:=${HOME}/.asdf}/plugins/nodejs/bin/import-release-team-keyring'
-
-  versions=$(< ${PWD}/tool-versions)  
-  asdf install "${versions[@]}"
-  asdf global "${versions[@]}"
+  
+  vagrant plugin install vagrant-parallels
 else
   softwareupdate -ia
 
   brew bundle check
 
-  asdf upgrade
-
-  ./bin/sync/vscode
+  sync-local vscode
+  
+  vagrant plugin update vagrant-parallels
 fi
 
 brew cleanup
 
-./vscode/extensions.sh
+../vscode/extensions.sh

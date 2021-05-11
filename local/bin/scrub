@@ -1,0 +1,13 @@
+#!/usr/bin/env sh
+
+function scrub() {
+  if [ -f $1 ] && [[ "$1" == *.zip ]] ; then
+    zip -qd $1 __MACOSX/\*
+    zip -qd $1 \*/.DS_Store
+    unzip -vl $1
+  else
+    echo "'$1' invalid file"
+  fi
+}
+
+scrub

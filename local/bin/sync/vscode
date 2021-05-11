@@ -1,5 +1,0 @@
-#!/usr/bin/env sh
-
-ext=$(code --list-extensions | xargs -L 1 echo code --install-extension)
-
-echo "#!/usr/bin/env sh\n$ext" > ${PWD}/vscode/extensions.sh

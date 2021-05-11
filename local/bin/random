@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+
+function random() {
+  echo $(openssl rand -${2:-base64} ${1:-32})
+}
+
+random

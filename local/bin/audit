@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+
+function audit() {
+  sudo praudit -l /dev/auditpipe
+}
+
+audit

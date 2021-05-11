@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+
+function rm-dsstore() {
+  find ${PWD} -name ".DS_Store" -depth -exec rm {} \;
+}
+
+rm-dsstore

@@ -54,4 +54,4 @@ map <C-w> :tabclose<cr>
 " Ctrl-D opens a shell.
 nmap <silent> <C-D> :shell<CR>
 
-source ./vim/plugins.vim
+source ${HOME}/.vim/plugins.vim

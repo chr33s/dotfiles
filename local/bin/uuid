@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+
+function uuid() {
+  uuidgen | tr '[:upper:]' '[:lower:]'
+}
+
+uuid
