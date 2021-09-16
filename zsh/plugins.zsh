@@ -1,23 +1,22 @@
-source ${HOME}/.zplug/init.zsh
+if [[ ! -d ~/.zinit ]];then
+  git clone https://github.com/zdharma/zinit.git ~/.zinit/bin
+fi
+source ${HOME}/.zinit/bin/zinit.zsh
 
-zplug "zsh-users/zsh-syntax-highlighting"
-zplug "zsh-users/zsh-autosuggestions"
-zplug "zsh-users/zsh-history-substring-search"
-if zplug check "zsh-users/zsh-history-substring-search"; then
+zinit load "zsh-users/zsh-syntax-highlighting"
+zinit load "zsh-users/zsh-autosuggestions"
+zinit load "zsh-users/zsh-history-substring-search"
+if zinit loaded "zsh-users/zsh-history-substring-search" >> /dev/null; then
   bindkey '^[[A' history-substring-search-up
   bindkey '^[[B' history-substring-search-down
 fi
-zplug "plugins/dotenv", from:oh-my-zsh
-zplug "mafredri/zsh-async", from:github
-zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
-if zplug check "sindresorhus/pure"; then
+zinit snippet OMZP::dotenv
+zinit ice from"github"
+zinit load "mafredri/zsh-async"
+zinit ice pick"pure.zsh" from"github" as"theme"
+zinit load "sindresorhus/pure"
+if zinit loaded "sindresorhus/pure" >> /dev/null; then
   zstyle :prompt:pure:git:fetch only_upstream yes
   zstyle :prompt:pure:git:stash show yes
 fi
-zplug "zsh-hooks/zsh-hooks"
-# zplug "~/.zsh", from:local
-# zplug 'zplug/zplug', hook-build:'zplug --self-manage'
-if ! zplug check --verbose; then
-  zplug install
-fi
-zplug load # --verbose
+zinit load "zsh-hooks/zsh-hooks"
