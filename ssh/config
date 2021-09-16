@@ -1,6 +1,8 @@
 Host *
-  # PassAuthentication no
+  AddKeysToAgent yes
   ChallengeResponseAuthentication no
-  UseRoaming no
-  ServerAliveInterval 15
   HashKnownHosts yes
+  ServerAliveInterval 15
+  UseKeychain yes
+  # PassAuthentication no
+  UseRoaming no
