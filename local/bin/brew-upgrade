@@ -1,0 +1,10 @@
+#!/usr/bin/env sh
+
+function brew-upgrade() {
+  brew update
+  brew upgrade
+  brew list --cask | xargs brew upgrade
+  brew cleanup
+}
+
+brew-upgrade
