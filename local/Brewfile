@@ -1,7 +1,7 @@
 tap "caskroom/cask"
 
 brew "macos-trash"
-brew "node"
+brew "node@16"
 brew "tree"
 brew "yarn"
 brew "watchman"
