@@ -34,8 +34,7 @@ function _sublime() { # copy> | link
 }
 
 function _vscode() {
-  EXT=$(code --list-extensions | xargs -L 1 echo code --install-extension)
-  echo "#!/usr/bin/env sh\n${EXT}" > ${PWD}/vscode/extensions.sh
+  code --list-extensions > ${PWD}/vscode/extensions.txt
 }
 
 function local-sync() {
