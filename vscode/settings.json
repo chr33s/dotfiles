@@ -70,7 +70,7 @@
   "editor.bracketPairColorization.enabled": true,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true,
-    "source.fixAll.stylelint": true,
+    "source.fixAll.stylelint": true
     // "source.organizeImports": true
   },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -82,10 +82,12 @@
   "editor.glyphMargin": true,
   "editor.guides.bracketPairs": "active",
   "editor.lineHeight": 22,
+  "editor.minimap.enabled": false,
   "editor.renderWhitespace": "all",
   "editor.tabSize": 2,
   "editor.trimAutoWhitespace": false,
   "eslint.alwaysShowStatus": true,
+  "eslint.workingDirectories": [{ "mode": "auto" }],
   "explorer.confirmDelete": false,
   "explorer.experimental.fileNesting.enabled": true,
   "explorer.experimental.fileNesting.expand": false,
@@ -102,9 +104,9 @@
     "index.d.ts": "*.d.ts",
     "go.mod": ".air*, go.sum",
     "gemfile": ".ruby-version, gemfile.lock",
-    "package.json": ".babelrc*, babel.config.*, .browserslist*, .circleci*, .codecov, .commitlint*, .cssnanorc*, .editorconfig, .eslint*, .flowconfig, .github*, .gitlab*, .gitpod*, .huskyrc*, .htmlnanorc*, .jslint*, .lintstagedrc*, .markdownlint*, .mocha*, .node-version, .nodemon*, .npm*, .nvmrc, .pm2*, .pnp.*, .pnpm*, .prettier*, .postcssrc*, .releaserc*, .sentry*, .stackblitz*, .styleci*, .stylelint*, .tazerc*, .textlint*, .tool-versions, .travis*, .vscode*, .watchman*, .xo-config*, .yamllint*, .yarnrc*, api-extractor.json, appveyor*, ava.config.*, azure-pipelines*, bower.json, build.config.*, commitlint*, crowdin*, cypress.json, dangerfile*, dprint.json, grunt*, gulp*, jasmine.*, jenkins*, jest.*.js, jsconfig.*, karma*, lerna*, lint-staged*, nest-cli.*, netlify*, next.config.*, nodemon*, nx.*, package-lock.json, playwright.config.*, pm2.*, pnpm*, postcss.config.*, prettier*, pullapprove*, puppeteer.config.*, renovate*, rollup.config.*, sanity.json, stylelint*, tailwind.config.*, tsconfig.*, tsdoc.*, tslint*, tsup.config.*, turbo*, typedoc*, vercel*, vetur.config.*, vite.config.*, vitest.config.*, webpack.config.*, workspace.json, yarn*",
+    "package.json": ".babelrc*, babel.config.*, .browserslist*, .circleci*, .codecov, .commitlint*, .cssnanorc*, .editorconfig, .eslint*, .flowconfig, .github*, .gitlab*, .gitpod*, .huskyrc*, .htmlnanorc*, .jslint*, .lintstagedrc*, .markdownlint*, .mocha*, .node-version, .nodemon*, .npm*, .nvmrc, .pm2*, .pnp.*, .pnpm*, .prettier*, .postcssrc*, .releaserc*, .sentry*, .stackblitz*, .styleci*, .stylelint*, .tazerc*, .textlint*, .tool-versions, .travis*, .vscode*, .watchman*, .xo-config*, .yamllint*, .yarnrc*, api-extractor.json, appveyor*, ava.config.*, azure-pipelines*, bower.json, build.config.*, commitlint*, crowdin*, cypress.json, dangerfile*, dprint.json, grunt*, gulp*, jasmine.*, jenkins*, jest.*.js, jest.*.cjs, jsconfig.*, karma*, lerna*, lint-staged*, nest-cli.*, netlify*, next.config.*, nodemon*, nx.*, package-lock.json, playwright.config.*, pm2.*, pnpm*, postcss.config.*, prettier*, pullapprove*, puppeteer.config.*, renovate*, rollup.config.*, sanity.json, stylelint*, tailwind.config.*, tsconfig.*, tsdoc.*, tslint*, tsup.config.*, turbo*, typedoc*, vercel*, vetur.config.*, vite.config.*, vitest.config.*, webpack.config.*, workspace.json, yarn*",
     "podfile": "podfile.lock",
-    "jest.config.js": "jest.*.js, jest-playwright.config.*"
+    "jest.config.*": "jest.*.js, jest-playwright.config.*"
   },
   "extensions.autoUpdate": "onlyEnabledExtensions",
   "files.associations": {
