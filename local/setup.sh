@@ -55,6 +55,7 @@ if test ! $(which brew); then
   brew bundle
   
   vagrant plugin install vagrant-parallels
+  brew install docker-machine-parallels
 else
   softwareupdate -ia
 
