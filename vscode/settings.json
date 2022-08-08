@@ -74,6 +74,7 @@
     // "source.organizeImports": true
   },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.experimental.stickyScroll.enabled": true,
   "editor.formatOnSave": true,
   "editor.fontFamily": "FiraCode-Retina, Menlo, Monaco, 'Courier New', monospace",
   "editor.fontLigatures": true,
