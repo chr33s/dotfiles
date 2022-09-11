@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+
+function diskUsage() {
+  du -d ${2:-1} -h ${1} 2>/dev/null | sort -hr
+}
+
+diskUsage ${@}
