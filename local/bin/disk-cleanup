@@ -5,7 +5,7 @@ function diskCleanup() {
   brew cleanup -s && rm -rf $(brew --cache) || true
   bundle clean --force || true
   docker system prune && docker image prune && docker container prune && docker volume prune
-  npm cache clean -force
+  npm cache clean -force && rm -rf ./Library/Caches/ms-playwright/* || true
   rm -rf ~/.gradle/{.tmp,caches} || true
   vagrant global-status --prune && rm -rf ./.vagrant.d/tmp/* || true
   yarn cache clean
