@@ -1,0 +1,15 @@
+#!/usr/bin/env sh
+
+function compress() {
+  if [ -f $1 ] ; then
+    case $1 in
+      *.tar.gz)    tar cf - $1 -P | pv -s $(($(du -sk $1 | awk '{print $1}') * 1024)) | gzip > $1.tar.gz $1 ;;
+      *.tar)       tar cf - $1 -P | pv -s $(($(du -sk $1 | awk '{print $1}') * 1024)) ;;
+      *)     echo "'$1' is an unsupported ext" ;;
+    esac
+   else
+    echo "'$1' is not a valid file"
+   fi
+}
+
+compress
