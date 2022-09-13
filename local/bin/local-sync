@@ -3,6 +3,7 @@
 function _mac() {
   for dir in Code Documents Downloads Notes
   do
+    mkdir ./${dir} || true &&
     chmod -R 754 ./${dir} &&
     rsync \
       --links \
