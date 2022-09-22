@@ -1,0 +1,13 @@
+{
+  "builder": {
+    "gc": {
+      "defaultKeepStorage": "20GB",
+      "enabled": true
+    }
+  },
+  "data-root": "/Volumes/External HD/docker/Data/vms/0/data",
+  "experimental": false,
+  "features": {
+    "buildkit": true
+  }
+}
