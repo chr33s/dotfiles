@@ -14,3 +14,5 @@ export PATH="${PATH}:/Applications/Visual Studio Code.app/Contents/Resources/app
 export TERM=xterm-256color
 export ZSH_DOTENV_PROMPT=false
 export ZPLUG_HOME="${HOME}/.zplug"
+
+. $(brew --prefix asdf)/libexec/asdf.sh

@@ -53,17 +53,31 @@ if test ! $(which brew); then
   brew install mas
   mas signin
   brew bundle
-  
+
   vagrant plugin install vagrant-parallels
   brew install docker-machine-parallels
+
+  plugins(
+    "deno"
+    "golang"
+    "java"
+    "nodejs"
+    "python"
+    "ruby"
+  )
+  asdf plugin add "${plugins[@]}"
+  asdf install "${plugins[@]}" latest
+  asdf global "${plugins[@]}" latest
 else
   softwareupdate -ia
 
   brew bundle check
 
   sync-local vscode
-  
+
   vagrant plugin update vagrant-parallels
+
+  asdf plugin update --all
 fi
 
 brew cleanup
