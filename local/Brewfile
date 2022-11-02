@@ -1,9 +1,11 @@
 tap "caskroom/cask"
+tap "homebrew/services"
 
 brew "git"
 brew "go"
+brew "libpq"
 brew "macos-trash"
-brew "node@16"
+brew "node"
 brew "pv"
 brew "rsync"
 brew "ruby"
@@ -40,13 +42,17 @@ cask "tripmode"
 cask "vagrant"
 cask "visual-studio-code"
 
+mas "Amphetamine", id: 937984704
 mas "iA Writer ", id: 775737590
 mas "Keynote", id: 409183694
 mas "Mindnode", id: 1289197285
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
+mas "Pixelmator Pro", id: 1289583905
 mas "Secrets | Password Manager", id: 973049011
 mas "Tailscale", id: 1475387142
 mas "TestFlight", id: 899247664
+mas "UTM", id: 1538878817
 mas "Xcode", id: 497799835
+mas "Yubico Authenticator", id: 1497506650
 mas "WireGuard", id: 1451685025
