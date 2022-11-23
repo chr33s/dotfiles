@@ -38,11 +38,9 @@ function _vscode() {
   code --list-extensions > ${PWD}/vscode/extensions.txt
 }
 
-function local-sync() {
-  case $1 in
-    mac)       _mac                      ;;
-    sublime)   _sublime $2               ;;
-    vscode)    _vscode                   ;;
-    *)         echo "'$1' is not a valid sync command [mac, sublime, vscode]"  ;;
-  esac
-}
+case $1 in
+  mac)       _mac                      ;;
+  sublime)   _sublime $2               ;;
+  vscode)    _vscode                   ;;
+  *)         echo "'$1' is not a valid sync command [mac, sublime, vscode]"  ;;
+esac
