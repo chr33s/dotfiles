@@ -7,7 +7,6 @@ files=(
   "gitconfig"
   "gitignore"
   "gnupg"
-  "local"
   "npmrc"
   "screenrc"
   "ssh"
@@ -20,8 +19,15 @@ files=(
 
 for file in "${files[@]}"
 do
-  rm -rf ~/.$file
-  ln -s $(pwd)/$file ~/.$file
+  rm -rf ~/.$file && ln -s $(pwd)/$file ~/.$file
+done
+unset file
+
+path="local/bin"
+for file in $(ls ./$path)
+do
+  mkdir -p ~/.$path
+  rm -f ~/.$path/_$file && ln -s $(pwd)/$path/$file ~/.$path/_$file
 done
 unset file
 
