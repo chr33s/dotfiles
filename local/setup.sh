@@ -38,8 +38,11 @@ if test ! $(which brew); then
   macos-hidden-show
   chflags -h nohidden ${HOME}/Library
 
-  /usr/libexec/ApplicationFirewall/socketfilterfw --setglobalstate on || true
-  /usr/libexec/ApplicationFirewall/socketfilterfw --setblockall on || true
+  flags(
+    "--setglobalstate"
+    "--setblockall on"
+  )
+  /usr/libexec/ApplicationFirewall/socketfilterfw "${flags[@]}" on || true
 
   softwareupdate -ia
 
