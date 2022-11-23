@@ -76,7 +76,7 @@ else
 
   brew bundle check
 
-  sync-local vscode
+  ./local/bin/sync-local vscode
 
   vagrant plugin update vagrant-parallels
 
@@ -84,5 +84,7 @@ else
 fi
 
 brew cleanup
+
+../setup.sh
 
 cat ../vscode/extensions.txt | xargs -L 1 code --install-extension
