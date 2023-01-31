@@ -81,6 +81,9 @@ else
   vagrant plugin update vagrant-parallels
 
   asdf plugin update --all
+
+  zinit self-update
+  zinit update
 fi
 
 brew cleanup
