@@ -127,6 +127,7 @@
   "terminal.integrated.fontFamily": "FiraCodeNerdFontComplete-Retina, Menlo, Monaco, 'Courier New', monospace",
   "terminal.integrated.fontSize": 13,
   "terminal.integrated.fontWeight": "400",
+  "terminal.integrated.scrollback": 10000,
   "terminal.integrated.tabs.enabled": false,
   "window.autoDetectColorScheme": true,
   "window.nativeFullScreen": true,
