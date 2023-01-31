@@ -10,7 +10,7 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 
 call plug#begin()
 
-Plug 'cormacrelf/vim-colors-github'
+Plug 'carlweis/vim-colors-github'
 Plug 'itchyny/lightline.vim'
 if !has('nvim')
     Plug 'tpope/vim-sensible'
@@ -39,13 +39,16 @@ let g:loaded_netrwPlugin=1
 
 set noshowmode
 set background=light
+
+let g:github_colors_soft = 1
+let g:github_colors_block_diffmark = 0
 colorscheme github
-" IndentLine {{
+
 let g:indentLine_char = ''
 let g:indentLine_first_char = ''
 let g:indentLine_showFirstIndentLevel = 1
 let g:indentLine_setColors = 0
-" }}
+
 let g:lightline = { 'colorscheme': 'github' }
 
 function! SetBackgroundMode(...)
@@ -59,6 +62,8 @@ function! SetBackgroundMode(...)
     if &background !=? s:background
       let &background = s:background
     endif
+    
+    call github_colors#togglebg_map('<f5>')
   endif
 endfunction
 
