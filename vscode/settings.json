@@ -103,7 +103,8 @@
   },
   "extensions.autoUpdate": "onlyEnabledExtensions",
   "files.associations": {
-    ".firebaserc": "json"
+    ".firebaserc": "json",
+      ".env*": "properties"
   },
   "files.exclude": {
     "**/.classpath": true,
