@@ -1,7 +1,8 @@
-if [[ ! -d ~/.zinit ]];then
-  git clone https://github.com/zdharma/zinit.git ~/.zinit/bin
+ZINIT_HOME="${HOME}/.local/share/zinit/zinit.git"
+if [ ! -d $ZINIT_HOME ]; then
+  git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 fi
-source ${HOME}/.zinit/bin/zinit.zsh
+source "${ZINIT_HOME}/zinit.zsh"
 
 zinit load "zsh-users/zsh-syntax-highlighting"
 zinit load "zsh-users/zsh-autosuggestions"
@@ -10,7 +11,6 @@ if zinit loaded "zsh-users/zsh-history-substring-search" >> /dev/null; then
   bindkey '^[[A' history-substring-search-up
   bindkey '^[[B' history-substring-search-down
 fi
-zinit snippet OMZP::dotenv
 zinit ice from"github"
 zinit load "mafredri/zsh-async"
 zinit ice pick"pure.zsh" from"github" as"theme"
@@ -19,4 +19,3 @@ if zinit loaded "sindresorhus/pure" >> /dev/null; then
   zstyle :prompt:pure:git:fetch only_upstream yes
   zstyle :prompt:pure:git:stash show yes
 fi
-zinit load "zsh-hooks/zsh-hooks"

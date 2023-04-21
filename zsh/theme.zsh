@@ -19,9 +19,4 @@ function SetBackgroundMode() {
 }
 
 SetBackgroundMode
-export PERIOD=30
-if zplug check "zsh-hooks/zsh-hooks"; then
-  add-zsh-hook periodic SetBackgroundMode
-else
-  while sleep ${PERIOD}; do SetBackgroundMode; done &
-fi
+add-zsh-hook periodic SetBackgroundMode || while sleep 30; do SetBackgroundMode; done &
