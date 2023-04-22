@@ -67,6 +67,8 @@ if test ! $(which brew); then
     "nodejs"
     "python"
     "ruby"
+    "rust"
+    "sqlite"
   )
   asdf plugin add "${plugins[@]}"
   asdf install "${plugins[@]}" latest
