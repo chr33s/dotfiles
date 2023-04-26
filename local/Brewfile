@@ -9,11 +9,10 @@ brew "macos-trash"
 brew "pv"
 brew "rsync"
 brew "sops"
-brew "sqlite"
 brew "tree"
 brew "watchman"
 
-cask "1password"
+cask "1password7"
 cask "adoptopenjdk/openjdk/adoptopenjdk15";
 cask "affinity-publisher"
 cask "affinity-photo"
@@ -46,7 +45,6 @@ cask "visual-studio-code"
 
 mas "iA Writer ", id: 775737590
 mas "Keynote", id: 409183694
-mas "Lungo", id: 1263070803
 mas "Mindnode", id: 1289197285
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
