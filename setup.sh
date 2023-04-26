@@ -10,11 +10,11 @@ files=(
   "npmrc"
   "screenrc"
   "ssh"
-  "tool-versions"
-  "zsh"
-  "zshrc"
+  "tmux.conf"
   "vim"
   "vimrc"
+  "zsh"
+  "zshrc"
 )
 
 for file in "${files[@]}"
