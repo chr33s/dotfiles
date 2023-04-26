@@ -81,7 +81,7 @@ else
 
   brew bundle check
 
-  ./local/bin/sync-local vscode
+  ~/.local/bin/_sync vscode
 
   vagrant plugin update vagrant-parallels
 
