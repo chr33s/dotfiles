@@ -4,10 +4,12 @@ bradlc.vscode-tailwindcss
 dbaeumer.vscode-eslint
 denoland.vscode-deno
 EditorConfig.EditorConfig
+esbenp.prettier-vscode
 GitHub.github-vscode-theme
 golang.go
 GraphQL.vscode-graphql
 GraphQL.vscode-graphql-syntax
+Gruntfuggly.todo-tree
 ms-azuretools.vscode-docker
 ms-vscode-remote.remote-containers
 ms-vscode-remote.remote-ssh
@@ -15,3 +17,4 @@ ms-vscode-remote.remote-ssh-edit
 ms-vscode.remote-explorer
 Shopify.theme-check-vscode
 stylelint.vscode-stylelint
+ZixuanChen.vitest-explorer
