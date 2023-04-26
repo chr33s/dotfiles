@@ -64,11 +64,14 @@ if test ! $(which brew); then
     "deno"
     "golang"
     "java"
+    "kotlin"
     "nodejs"
+    "packer"
     "python"
     "ruby"
     "rust"
     "sqlite"
+    "terraform"
   )
   asdf plugin add "${plugins[@]}"
   asdf install "${plugins[@]}" latest
