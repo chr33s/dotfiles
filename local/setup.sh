@@ -61,6 +61,7 @@ if test ! $(which brew); then
   brew install docker-machine-parallels
 
   plugins(
+    "actionlint"
     "deno"
     "golang"
     "java"
