@@ -77,6 +77,8 @@ if test ! $(which brew); then
   asdf plugin add "${plugins[@]}"
   asdf install "${plugins[@]}" latest
   asdf global "${plugins[@]}" latest
+  
+  vim +PlugInstall +qall
 else
   softwareupdate -ia
 
@@ -90,6 +92,8 @@ else
 
   zinit self-update
   zinit update
+  
+  vim +PlugUpdate +qall
 fi
 
 brew cleanup
