@@ -146,5 +146,6 @@
       "source.fixAll.stylelint": false
     }
   },
-  "update.showReleaseNotes": false
+  "update.showReleaseNotes": false,
+  "git.openRepositoryInParentFolders": "never"
 }
