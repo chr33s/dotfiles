@@ -64,6 +64,7 @@ if test ! $(which brew); then
     "actionlint"
     "deno"
     "golang"
+    "hadolint"
     "java"
     "kotlin"
     "nodejs"
