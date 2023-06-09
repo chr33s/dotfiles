@@ -71,7 +71,6 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true,
     "source.fixAll.stylelint": true
-    // "source.organizeImports": true
   },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
@@ -114,6 +113,7 @@
   },
   "git.autofetch": true,
   "git.enableSmartCommit": true,
+  "git.openRepositoryInParentFolders": "never",
   "prettier.requireConfig": true,
   "scm.defaultViewMode": "tree",
   "search.exclude": {
@@ -130,6 +130,7 @@
   "terminal.integrated.fontWeight": "400",
   "terminal.integrated.scrollback": 10000,
   "terminal.integrated.tabs.enabled": false,
+  "update.showReleaseNotes": false,
   "window.autoDetectColorScheme": true,
   "window.nativeFullScreen": true,
   "window.nativeTabs": true,
@@ -145,7 +146,5 @@
     "editor.codeActionsOnSave": {
       "source.fixAll.stylelint": false
     }
-  },
-  "update.showReleaseNotes": false,
-  "git.openRepositoryInParentFolders": "never"
+  }
 }
