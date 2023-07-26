@@ -2,33 +2,6 @@
   "better-comments.highlightPlainText": true,
   "better-comments.tags": [
     {
-      "tag": "!",
-      "color": "#FF2D00",
-      "strikethrough": false,
-      "underline": false,
-      "backgroundColor": "transparent",
-      "bold": false,
-      "italic": false
-    },
-    {
-      "tag": "?",
-      "color": "#3498DB",
-      "strikethrough": false,
-      "underline": false,
-      "backgroundColor": "transparent",
-      "bold": false,
-      "italic": false
-    },
-    {
-      "tag": "//",
-      "color": "#474747",
-      "strikethrough": true,
-      "underline": false,
-      "backgroundColor": "transparent",
-      "bold": false,
-      "italic": false
-    },
-    {
       "tag": "todo",
       "color": "#FF8C00",
       "strikethrough": false,
@@ -49,15 +22,6 @@
     {
       "tag": "note",
       "color": "#CC00CC",
-      "strikethrough": false,
-      "underline": false,
-      "backgroundColor": "transparent",
-      "bold": false,
-      "italic": false
-    },
-    {
-      "tag": "*",
-      "color": "#98C379",
       "strikethrough": false,
       "underline": false,
       "backgroundColor": "transparent",
@@ -86,7 +50,6 @@
   "editor.stickyScroll.enabled": true,
   "editor.tabSize": 2,
   "editor.trimAutoWhitespace": false,
-  "eslint.alwaysShowStatus": true,
   "eslint.workingDirectories": [{ "mode": "auto" }],
   "explorer.confirmDelete": false,
   "explorer.fileNesting.enabled": true,

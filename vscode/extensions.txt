@@ -7,7 +7,6 @@ EditorConfig.EditorConfig
 esbenp.prettier-vscode
 GitHub.github-vscode-theme
 golang.go
-GraphQL.vscode-graphql
 GraphQL.vscode-graphql-syntax
 Gruntfuggly.todo-tree
 ms-azuretools.vscode-docker
