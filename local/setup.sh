@@ -87,7 +87,7 @@ else
 
   ~/.local/bin/_sync vscode
 
-  vagrant plugin update vagrant-parallels
+  vagrant plugin update
 
   asdf plugin update --all
 
