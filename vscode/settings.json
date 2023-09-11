@@ -63,7 +63,6 @@
     "tsconfig.json": "tsconfig.*.json",
     "package.json": "package-lock.json, yarn.lock, pnpm-lock.yaml"
   },
-  "extensions.autoUpdate": "onlyEnabledExtensions",
   "files.associations": {
     ".firebaserc": "json",
       ".env*": "properties"
@@ -93,6 +92,8 @@
   "terminal.integrated.fontWeight": "400",
   "terminal.integrated.scrollback": 10000,
   "terminal.integrated.tabs.enabled": false,
+  "todo-tree.filtering.excludeGlobs": ["**/node_modules/*/**", "**/*.svg"],
+  "typescript.updateImportsOnFileMove.enabled": "never",
   "update.showReleaseNotes": false,
   "window.autoDetectColorScheme": true,
   "window.nativeFullScreen": true,
