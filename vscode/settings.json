@@ -110,5 +110,8 @@
     "editor.codeActionsOnSave": {
       "source.fixAll.stylelint": false
     }
+  },
+  "[markdown]": {
+    "editor.wordWrap": "off"
   }
 }
