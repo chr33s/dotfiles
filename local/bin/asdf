@@ -1,0 +1,15 @@
+#!/usr/bin/env sh
+
+function upgrade() {
+  _plugin="${1}"
+  _current=$(asdf current ${_plugin}  | tr -s ' ' | cut -d ' ' -f 2)
+  _latest=$(asdf latest ${_plugin})
+
+  if [[ "$_current" != "$_latest" ]]; then
+    asdf install ${_plugin} latest
+    asdf global ${_plugin} latest
+    asdf uninstall ${_plugin} ${_current}
+  fi
+}
+
+${@}

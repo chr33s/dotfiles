@@ -3,6 +3,22 @@
 sudo -v
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
+plugins(
+  "actionlint"
+  "deno"
+  "golang"
+  "hadolint"
+  "java"
+  "kotlin"
+  "nodejs"
+  "packer"
+  "python"
+  "ruby"
+  "rust"
+  "sqlite"
+  "terraform"
+)
+
 if test ! $(which brew); then
   # MacOS
 
@@ -60,21 +76,6 @@ if test ! $(which brew); then
   vagrant plugin install vagrant-parallels
   brew install docker-machine-parallels
 
-  plugins(
-    "actionlint"
-    "deno"
-    "golang"
-    "hadolint"
-    "java"
-    "kotlin"
-    "nodejs"
-    "packer"
-    "python"
-    "ruby"
-    "rust"
-    "sqlite"
-    "terraform"
-  )
   asdf plugin add "${plugins[@]}"
   asdf install "${plugins[@]}" latest
   asdf global "${plugins[@]}" latest
@@ -90,6 +91,14 @@ else
   vagrant plugin update
 
   asdf plugin update --all
+
+  _current=$(asdf current "${plugins[@]}"  | tr -s ' ' | cut -d ' ' -f 2)
+  _latest=$(asdf latest "${plugins[@]}")
+  if [[ "$_current" != "$_latest" ]]; then
+    asdf install "${plugins[@]}" latest
+    asdf global "${plugins[@]}" latest
+    asdf uninstall "${plugins[@]}" ${_current}
+  fi
 
   zinit self-update
   zinit update
