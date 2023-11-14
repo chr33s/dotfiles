@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-function pretty-json() {
+function pretty() {
   if [ -p /dev/stdin ]; then
     python -mjson.tool
   else
@@ -8,4 +8,4 @@ function pretty-json() {
   fi
 }
 
-pretty-json
+${@:-pretty}

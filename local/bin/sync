@@ -1,6 +1,12 @@
 #!/usr/bin/env sh
 
-function _mac() {
+function all() {
+  mac
+  sublime
+  vscode
+}
+
+function mac() {
   for dir in Code Documents Downloads Notes
   do
     mkdir ./${dir} || true &&
@@ -19,7 +25,7 @@ function _mac() {
   done
 }
 
-function _sublime() { # copy> | link
+function sublime() { # copy> | link
   CMD=${1:-copy}
   DEST="${HOME}/.config/sublime"
 
@@ -34,13 +40,8 @@ function _sublime() { # copy> | link
   esac
 }
 
-function _vscode() {
+function vscode() {
   code --list-extensions > ${PWD}/vscode/extensions.txt
 }
 
-case $1 in
-  mac)       _mac                      ;;
-  sublime)   _sublime $2               ;;
-  vscode)    _vscode                   ;;
-  *)         echo "'$1' is not a valid sync command [mac, sublime, vscode]"  ;;
-esac
+${@}

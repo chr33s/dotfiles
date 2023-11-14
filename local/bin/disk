@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-function diskCleanup() {
+function cleanup() {
   rm -rf .android/cache/* || trye
   brew cleanup -s && rm -rf $(brew --cache) || true
   bundle clean --force || true
@@ -11,4 +11,8 @@ function diskCleanup() {
   yarn cache clean
 }
 
-diskCleanup ${@}
+function usage() {
+  du -d ${2:-1} -h ${1} 2>/dev/null | sort -hr
+}
+
+${@}

@@ -1,9 +1,16 @@
 #!/usr/bin/env sh
 
-function brew-rm() {
+function upgrade() {
+  brew update
+  brew upgrade
+  brew list --cask | xargs brew upgrade
+  brew cleanup
+}
+
+function rm() {
   brew deps $1 | xargs brew remove --ignore-dependencies
   brew remove $1
   brew missing | cut -d: -f2 | sort | uniq | xargs brew install
 }
 
-brew-rm
+${@}

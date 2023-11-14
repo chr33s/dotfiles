@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
-function bundle_id() {
+function id() {
   echo osascript -e "id of app \"$1\""
 }
 
-bundle_id "$1"
+${@}

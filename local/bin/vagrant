@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-function vagrant-up() {
+function up() {
   AVAILABLE_UPDATES=`vagrant box outdated --global | grep outdated | tr -d "*'" | cut -d ' ' -f 2`
 
   if [ ! ${#AVAILABLE_UPDATES[@]} -eq 0 ]; then
@@ -23,4 +23,4 @@ function vagrant-up() {
   vagrant box outdated --global
 }
 
-vagrant-up
+${@:-up}
