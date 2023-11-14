@@ -28,12 +28,10 @@ if test ! $(which brew); then
 
   defaults(
     "/Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string `whoami`"
+    "-g AppleInterfaceStyleSwitchesAutomatically -bool true"
     "com.apple.dock mouse-over-hilite-stack -bool true"
     'com.apple.print.PrintingPrefs "Quit When Finished" -bool true'
     "com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true"
-    "-currentHost NSGlobalDomain com.apple.mouse.tapBehavior -int 1"
-    "NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false"
-    "NSGlobalDomain com.apple.mouse.tapBehavior -int 1"
     "com.apple.desktopservices DSDontWriteNetworkStores -bool true"
     "com.apple.dock minimize-to-application -bool true"
     "com.apple.dock enable-spring-load-actions-on-all-items -bool true"
@@ -43,11 +41,18 @@ if test ! $(which brew); then
     "com.apple.Safari IncludeDevelopMenu -bool true"
     "com.apple.Safari AutoOpenSafeDownloads -bool false"
     "com.apple.terminal StringEncodings -array 4"
-    "NSGlobalDomain WebKitDeveloperExtras -bool true"
     "com.apple.CrashReporter DialogType none"
     "com.apple.iTunes dontAutomaticallySyncIPods -integer 1"
     "com.apple.TextEdit RichText -int 0"
-    "-g AppleInterfaceStyleSwitchesAutomatically -bool true"
+    "com.apple.screencapture location -string ~/Downloads"
+    "com.apple.screencapture type -string png"
+    "com.apple.CrashReporter DialogType -string none"
+    "com.apple.dock autohide -bool true"
+    "com.apple.dock showhidden -bool true"
+    "NSGlobalDomain com.apple.mouse.tapBehavior -int 1"
+    "NSGlobalDomain AppleFontSmoothing -int 2"
+    "NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false"
+    "NSGlobalDomain WebKitDeveloperExtras -bool true"
   )
   defaults write "${defaults[@]}"
 
