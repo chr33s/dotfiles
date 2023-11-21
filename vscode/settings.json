@@ -92,7 +92,7 @@
   "terminal.integrated.fontWeight": "400",
   "terminal.integrated.scrollback": 10000,
   "terminal.integrated.tabs.enabled": false,
-  "todo-tree.filtering.excludeGlobs": ["**/node_modules/*/**", "**/*.svg"],
+  "todo-tree.filtering.excludeGlobs": ["**/node_modules/*/**", "**/dist/**", "**/*.svg"],
   "typescript.updateImportsOnFileMove.enabled": "never",
   "update.showReleaseNotes": false,
   "window.autoDetectColorScheme": true,
