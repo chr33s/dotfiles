@@ -36,6 +36,7 @@
   required = true
   process = git-lfs filter-process
 [gpg]
+  format = ssh
   program = /opt/homebrew/bin/gpg
 [init]
   defaultBranch = main
@@ -66,5 +67,6 @@
   email = chr33s@icloud.com
   name = chris
   user = chr33s
+  signingkey = ~/.ssh/id_ed25519.pub
 # [includeIf "gitdir:~/Code/work/"]
 #	path = ~/Code/work/.gitconfig
