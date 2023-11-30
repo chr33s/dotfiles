@@ -2,9 +2,9 @@
 *.swp
 *.bak
 vim/*
-vim/!init.vim
+!vim/init.vim
 ssh/*
-ssh/!config
+!ssh/config
 gnupg/*
 !gnupg/common.conf
 !gnupg/gpg-agent.conf
