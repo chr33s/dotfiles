@@ -4,6 +4,7 @@ export COPYFILE_DISABLE=true
 export EDITOR="vim"
 export VISUAL="vim"
 export GOPATH=${HOME}/go
+export GPG_TTY=$(tty)
 export HOMEBREW_NO_ANALYTICS=1
 export LANG="en_GB.UTF-8"
 export LSCOLORS="ExGxBxDxCxEgEdxbxgxcxd"
