@@ -33,8 +33,8 @@
   "debug.showInStatusBar": "always",
   "editor.bracketPairColorization.enabled": true,
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true,
-    "source.fixAll.stylelint": true
+    "source.fixAll.eslint": "explicit",
+    "source.fixAll.stylelint": "explicit"
   },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
@@ -92,7 +92,7 @@
   "terminal.integrated.fontWeight": "400",
   "terminal.integrated.scrollback": 10000,
   "terminal.integrated.tabs.enabled": false,
-  "todo-tree.filtering.excludeGlobs": ["**/node_modules/*/**", "**/dist/**", "**/*.svg"],
+  "todo-tree.filtering.excludeGlobs": ["**/node_modules/**", "**/dist/**", "**/*.svg"],
   "typescript.updateImportsOnFileMove.enabled": "never",
   "update.showReleaseNotes": false,
   "window.autoDetectColorScheme": true,
