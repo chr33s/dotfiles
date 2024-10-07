@@ -3,9 +3,9 @@
 setopt append_history share_history histignorealldups
 bindkey -e
 
-source ${HOME}/.zsh/exports.zsh
-source ${HOME}/.zsh/aliases.zsh
-source ${HOME}/.zsh/plugins.zsh
-source ${HOME}/.zsh/theme.zsh
+for src in exports aliases plugins theme completions; do
+  source ${HOME}/.zsh/${src}.zsh
+done
+unset src
 
-clear
+printf "\033c" # clear
