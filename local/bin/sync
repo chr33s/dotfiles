@@ -7,7 +7,7 @@ function all() {
 }
 
 function mac() {
-  for dir in Code Documents Downloads Notes
+  for dir in Developer Documents Downloads Notes
   do
     mkdir ./${dir} || true &&
     chmod -R 754 ./${dir} &&

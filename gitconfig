@@ -68,5 +68,5 @@
   name = chris
   user = chr33s
   signingkey = ~/.ssh/id_ed25519.pub
-# [includeIf "gitdir:~/Code/work/"]
-#	path = ~/Code/work/.gitconfig
+# [includeIf "gitdir:~/Developer/work/"]
+#	path = ~/Developer/work/.gitconfig
