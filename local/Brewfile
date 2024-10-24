@@ -1,12 +1,15 @@
 tap "homebrew/services"
 
 brew "asdf"
+brew "docker"
+brew "docker-machine"
 brew "git"
 brew "gpg"
 brew "jq"
 brew "libpq"
-brew "mysql-client"
+brew "mas"
 brew "macos-trash"
+brew "mysql-client"
 brew "pinentry-mac"
 brew "podman"
 brew "pv"
@@ -17,14 +20,13 @@ brew "watchman"
 
 cask "1password7"
 cask "adoptopenjdk/openjdk/adoptopenjdk15";
-cask "affinity-publisher"
+cask "affinity-designer"
 cask "affinity-photo"
 cask "affinity-publisher"
 cask "android-studio"
 cask "bruno"
 cask "chromium"
 cask "cryptomator"
-cask "docker"
 cask "figma"
 cask "firefox"
 cask "firefox-developer-edition"
@@ -32,15 +34,18 @@ cask "flipper"
 cask "font-fira-code"
 cask "font-fira-code-nerd-font"
 cask "font-inter"
+cask "font-monaspace"
+cask "font-nunito"
+cask "font-poetsen-one"
+cask "font-roboto"
 cask "fork"
 cask "google-chrome"
 cask "google-chrome-canary"
 cask "logseq"
 # cask "microsoft-edge"
+cask "orbstack"
 cask "onyx"
-cask "parallels"
-cask "parallels-virtualization-sdk"
-cask "podman-desktop"
+cask "proxyman"
 cask "sketch"
 cask "tableplus"
 cask "transmit"
@@ -54,10 +59,8 @@ mas "Mindnode", id: 1289197285
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "Pixelmator Pro", id: 1289583905
-mas "Secrets | Password Manager", id: 973049011
 mas "Tailscale", id: 1475387142
 mas "TestFlight", id: 899247664
-mas "UTM", id: 1538878817
 mas "Xcode", id: 497799835
 mas "Yubico Authenticator", id: 1497506650
 mas "WireGuard", id: 1451685025
