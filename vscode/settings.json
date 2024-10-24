@@ -87,9 +87,9 @@
     "**/yarn.lock": true
   },
   "telemetry.telemetryLevel": "off",
-  "terminal.integrated.fontFamily": "FiraCodeNerdFontComplete-Retina, Menlo, Monaco, 'Courier New', monospace",
+  "terminal.integrated.fontFamily": "MonaspaceNeon, FiraCodeNerdFontComplete-Retina, Menlo, Monaco, 'Courier New', monospace",
   "terminal.integrated.fontSize": 12,
-  "terminal.integrated.fontWeight": "400",
+  "terminal.integrated.fontWeight": "300",
   "terminal.integrated.scrollback": 10000,
   "terminal.integrated.tabs.enabled": false,
   "todo-tree.filtering.excludeGlobs": ["**/node_modules/**", "**/dist/**", "**/*.svg"],
