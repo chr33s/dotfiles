@@ -1,6 +1,7 @@
 #!/usr/bin/env sh
 
 files=(
+  "config/ghostty/config"
   "curlrc"
   "editorconfig"
   "gemrc"
@@ -17,6 +18,7 @@ files=(
   "zshrc"
 )
 
+mkdir -p ~/.config
 for file in "${files[@]}"
 do
   rm -rf ~/.$file && ln -s $(pwd)/$file ~/.$file
