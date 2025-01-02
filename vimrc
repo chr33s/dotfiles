@@ -34,9 +34,6 @@ set listchars=tab:>·,space:·
 set list
 
 set termguicolors
-if !has('gui_running')
-  set t_Co=256
-endif
 
 " Clear highlighting on escape in normal mode
 nnoremap <esc> :noh<return><esc>
