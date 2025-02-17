@@ -8,7 +8,7 @@ function upgrade() {
 
   if [[ "$_current" != "$_latest" ]]; then
     asdf install ${_plugin} ${_latest}
-    asdf global ${_plugin} ${_latest}
+    asdf set ${_plugin} ${_latest}
     asdf uninstall ${_plugin} ${_current}
   fi
 }
