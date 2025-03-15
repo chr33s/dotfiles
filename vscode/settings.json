@@ -73,7 +73,9 @@
     "**/.settings": true,
     "**/.factorypath": true
   },
+  "git.alwaysSignOff": true,
   "git.autofetch": true,
+  "git.enableCommitSigning": true,
   "git.enableSmartCommit": true,
   "git.openRepositoryInParentFolders": "never",
   "prettier.requireConfig": true,
