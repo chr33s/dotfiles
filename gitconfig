@@ -2,7 +2,7 @@
   clear= clean -f -d
   last = log -1 HEAD
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-  rename = git-rename
+  rename = _git rename
   undo = reset --soft HEAD~1
 [apply]
   whitespace = fix
@@ -24,9 +24,12 @@
   helper = osxkeychain
 [diff]
   colorMoved = zebra
-  tool = vimdiff
+  tool = Kaleidoscope
 [difftool]
   prompt = false
+  trustExitCode = true
+[difftool "Kaleidoscope"]
+  cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 [fetch]
   fsckobjects = true
   prune = true
@@ -37,15 +40,17 @@
   process = git-lfs filter-process
 [gpg]
   format = ssh
-  program = /opt/homebrew/bin/gpg
 [init]
   defaultBranch = main
 [merge]
   log = true
-  tool = vimdiff
+  tool = Kaleidoscope
 [mergetool]
   keepBackup = false
   prompt = false
+[mergetool "Kaleidoscope"]
+  cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+  trustExitCode = true
 [pull]
   rebase = true
 [push]
@@ -55,6 +60,8 @@
   autosquash = true
 [receive]
   fsckObjects = true
+[tag]
+  gpgSign = true
 [transfer]
   fsckobjects = true
 [url "ssh://git@github.com/"]
@@ -67,6 +74,6 @@
   email = chr33s@icloud.com
   name = chris
   user = chr33s
-  signingkey = ~/.ssh/id_ed25519.pub
+  signingkey = ~/.ssh/chr33s.pub
 # [includeIf "gitdir:~/Developer/work/"]
 #	path = ~/Developer/work/.gitconfig
