@@ -1,5 +1,6 @@
 aaron-bond.better-comments
 bierner.comment-tagged-templates
+biomejs.biome
 dbaeumer.vscode-eslint
 EditorConfig.EditorConfig
 esbenp.prettier-vscode

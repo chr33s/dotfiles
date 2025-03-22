@@ -29,6 +29,7 @@
       "italic": false
     }
   ],
+  "biome.requireConfigFile": true,
   "breadcrumbs.enabled": false,
   "debug.showInStatusBar": "always",
   "editor.bracketPairColorization.enabled": true,
