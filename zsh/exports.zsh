@@ -11,5 +11,6 @@ export PATH="${HOME}/.local/bin:${PATH}:./bin:./.bin:./node_modules/.bin:${GOPAT
 export PATH="${PATH}:/opt/homebrew/bin:"
 export PATH="${PATH}:${ANDROID_HOME}/emulator:${ANDROID_HOME}/tools:${ANDROID_HOME}/tools/bin:${ANDROID_HOME}/platform-tools"
 export PATH="${PATH}:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+export PATH="${PATH}:/Users/chr33s/.lmstudio/bin"
 
 . $(brew --prefix asdf)/libexec/asdf.sh
