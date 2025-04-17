@@ -31,6 +31,7 @@
   ],
   "biome.requireConfigFile": true,
   "breadcrumbs.enabled": false,
+  "cloudcode.debug.telemetry": "off",
   "debug.showInStatusBar": "always",
   "editor.bracketPairColorization.enabled": true,
   "editor.codeActionsOnSave": {
@@ -52,6 +53,7 @@
   "editor.tabSize": 2,
   "editor.trimAutoWhitespace": false,
   "eslint.workingDirectories": [{ "mode": "auto" }],
+  "eslint.requireConfig": true,
   "explorer.confirmDelete": false,
   "explorer.fileNesting.enabled": true,
   "explorer.fileNesting.expand": false,
@@ -74,6 +76,8 @@
     "**/.settings": true,
     "**/.factorypath": true
   },
+  "github.copilot.collectDiagnostics": "off",
+  "geminicodeassist.enableTelemetry": false,
   "git.alwaysSignOff": true,
   "git.autofetch": true,
   "git.enableCommitSigning": true,
