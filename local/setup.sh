@@ -78,6 +78,12 @@ if test ! $(which brew); then
   mas signin
   brew bundle
 
+  extensions(
+    "github/gh-copilot"
+    "github/gh-models"
+  )
+  gh extension install "${extensions[@]}"
+
   vagrant plugin install vagrant-parallels
   brew install docker-machine-parallels
 
@@ -104,6 +110,8 @@ else
     asdf global "${plugins[@]}" latest
     asdf uninstall "${plugins[@]}" ${_current}
   fi
+
+  gh extension upgrade --all
 
   zinit self-update
   zinit update

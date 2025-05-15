@@ -15,3 +15,4 @@ export PATH="${PATH}:/Applications/Visual Studio Code.app/Contents/Resources/app
 export PATH="${PATH}:/Users/chr33s/.lmstudio/bin"
 
 . $(brew --prefix asdf)/libexec/asdf.sh
+eval "$(gh copilot alias -- zsh)"
