@@ -52,7 +52,11 @@
   "editor.stickyScroll.enabled": true,
   "editor.tabSize": 2,
   "editor.trimAutoWhitespace": false,
-  "eslint.workingDirectories": [{ "mode": "auto" }],
+  "eslint.workingDirectories": [
+    {
+      "mode": "auto"
+    }
+  ],
   "eslint.requireConfig": true,
   "explorer.confirmDelete": false,
   "explorer.fileNesting.enabled": true,
@@ -67,8 +71,10 @@
     "package.json": "package-lock.json, yarn.lock, pnpm-lock.yaml"
   },
   "files.associations": {
+    ".editorconfig": "properties",
     ".firebaserc": "json",
-      ".env*": "properties"
+    ".*.vars": "properties",
+    ".env*": "properties"
   },
   "files.exclude": {
     "**/.classpath": true,
@@ -88,9 +94,11 @@
   "search.exclude": {
     "**/.cache": true,
     "**/.git": true,
+    "**/build": true,
     "**/dist": true,
     "**/node_modules": true,
     "**/package-lock.json": true,
+    "**/pnpm-lock.yaml": true,
     "**/yarn.lock": true
   },
   "telemetry.telemetryLevel": "off",
@@ -98,8 +106,14 @@
   "terminal.integrated.fontSize": 12,
   "terminal.integrated.fontWeight": "300",
   "terminal.integrated.scrollback": 10000,
+  "terminal.integrated.suggest.enabled": true,
   "terminal.integrated.tabs.enabled": false,
-  "todo-tree.filtering.excludeGlobs": ["**/node_modules/**", "**/dist/**", "**/*.svg"],
+  "todo-tree.filtering.excludeGlobs": [
+    "**/node_modules/**",
+    "**/build/**",
+    "**/dist/**",
+    "**/*.svg"
+  ],
   "typescript.updateImportsOnFileMove.enabled": "never",
   "update.showReleaseNotes": false,
   "window.autoDetectColorScheme": true,
@@ -113,6 +127,12 @@
   "workbench.preferredDarkColorTheme": "GitHub Dark",
   "workbench.preferredLightColorTheme": "GitHub Light",
   "workbench.startupEditor": "newUntitledFile",
+  "workbench.settings.applyToAllProfiles": [
+    "workbench.colorTheme",
+    "workbench.preferredDarkColorTheme",
+    "workbench.preferredLightColorTheme",
+    "workbench.startupEditor"
+  ],
   "[javascript]": {
     "editor.codeActionsOnSave": {
       "source.fixAll.stylelint": false
