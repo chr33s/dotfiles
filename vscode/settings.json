@@ -34,11 +34,6 @@
   "cloudcode.debug.telemetry": "off",
   "debug.showInStatusBar": "always",
   "editor.bracketPairColorization.enabled": true,
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "explicit",
-    "source.fixAll.stylelint": "explicit"
-  },
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
   "editor.fontFamily": "FiraCode-Retina, Menlo, Monaco, 'Courier New', monospace",
   "editor.fontLigatures": true,
@@ -52,11 +47,6 @@
   "editor.stickyScroll.enabled": true,
   "editor.tabSize": 2,
   "editor.trimAutoWhitespace": false,
-  "eslint.workingDirectories": [
-    {
-      "mode": "auto"
-    }
-  ],
   "eslint.requireConfig": true,
   "explorer.confirmDelete": false,
   "explorer.fileNesting.enabled": true,
@@ -114,7 +104,6 @@
     "**/dist/**",
     "**/*.svg"
   ],
-  "typescript.updateImportsOnFileMove.enabled": "never",
   "update.showReleaseNotes": false,
   "window.autoDetectColorScheme": true,
   "window.nativeFullScreen": true,
@@ -132,13 +121,5 @@
     "workbench.preferredDarkColorTheme",
     "workbench.preferredLightColorTheme",
     "workbench.startupEditor"
-  ],
-  "[javascript]": {
-    "editor.codeActionsOnSave": {
-      "source.fixAll.stylelint": false
-    }
-  },
-  "[markdown]": {
-    "editor.wordWrap": "off"
-  }
+  ]
 }
