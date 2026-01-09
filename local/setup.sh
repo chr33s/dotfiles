@@ -4,6 +4,7 @@ sudo -v
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 plugins(
+  "bun"
   "actionlint"
   "deno"
   "golang"
@@ -83,9 +84,6 @@ if test ! $(which brew); then
     "github/gh-models"
   )
   gh extension install "${extensions[@]}"
-
-  vagrant plugin install vagrant-parallels
-  brew install docker-machine-parallels
 
   asdf plugin add "${plugins[@]}"
   asdf install "${plugins[@]}" latest
