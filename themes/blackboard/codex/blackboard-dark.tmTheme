@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>name</key>
+  <string>Blackboard Dark</string>
+  <key>settings</key>
+  <array>
+    <dict>
+      <key>settings</key>
+      <dict>
+        <key>background</key><string>#0C1021</string>
+        <key>caret</key><string>#FFFFFF</string>
+        <key>foreground</key><string>#F8F8F8</string>
+        <key>invisibles</key><string>#66738C</string>
+        <key>lineHighlight</key><string>#161C33</string>
+        <key>selection</key><string>#253B76</string>
+      </dict>
+    </dict>
+    <dict>
+      <key>name</key><string>Comments</string>
+      <key>scope</key><string>comment</string>
+      <key>settings</key><dict><key>foreground</key><string>#AEAEAE</string></dict>
+    </dict>
+    <dict>
+      <key>name</key><string>Constants and numbers</string>
+      <key>scope</key><string>constant, constant.numeric, constant.language, variable.other.constant</string>
+      <key>settings</key><dict><key>foreground</key><string>#D8FA3C</string></dict>
+    </dict>
+    <dict>
+      <key>name</key><string>Keywords and storage</string>
+      <key>scope</key><string>keyword, storage, storage.type, storage.modifier</string>
+      <key>settings</key><dict><key>foreground</key><string>#FBDE2D</string></dict>
+    </dict>
+    <dict>
+      <key>name</key><string>Strings</string>
+      <key>scope</key><string>string, meta.verbatim</string>
+      <key>settings</key><dict><key>foreground</key><string>#61CE3C</string></dict>
+    </dict>
+    <dict>
+      <key>name</key><string>Escapes and interpolation</string>
+      <key>scope</key><string>constant.character.escape, string constant.other.placeholder, punctuation.definition.template-expression</string>
+      <key>settings</key><dict><key>foreground</key><string>#FF6400</string></dict>
+    </dict>
+    <dict>
+      <key>name</key><string>Functions</string>
+      <key>scope</key><string>entity.name.function, support.function, meta.function-call</string>
+      <key>settings</key><dict><key>foreground</key><string>#BECDE6</string></dict>
+    </dict>
+    <dict>
+      <key>name</key><string>Types and classes</string>
+      <key>scope</key><string>entity.name.type, entity.name.class, entity.other.inherited-class, support.type, support.class</string>
+      <key>settings</key><dict><key>foreground</key><string>#D5E0F3</string></dict>
+    </dict>
+    <dict>
+      <key>name</key><string>Properties and support</string>
+      <key>scope</key><string>variable.other.property, support, entity.other.attribute-name</string>
+      <key>settings</key><dict><key>foreground</key><string>#8DA6CE</string></dict>
+    </dict>
+    <dict>
+      <key>name</key><string>Entities and tags</string>
+      <key>scope</key><string>entity.name.tag, punctuation.definition.tag, punctuation.definition.heading, markup.heading</string>
+      <key>settings</key><dict><key>foreground</key><string>#FF6400</string></dict>
+    </dict>
+    <dict>
+      <key>name</key><string>Variables and operators</string>
+      <key>scope</key><string>variable, keyword.operator, punctuation.separator, punctuation.terminator</string>
+      <key>settings</key><dict><key>foreground</key><string>#F8F8F8</string></dict>
+    </dict>
+    <dict>
+      <key>name</key><string>Markup links</string>
+      <key>scope</key><string>markup.underline.link, string.other.link</string>
+      <key>settings</key><dict><key>foreground</key><string>#BECDE6</string><key>fontStyle</key><string>underline</string></dict>
+    </dict>
+    <dict>
+      <key>name</key><string>Inserted</string>
+      <key>scope</key><string>markup.inserted, meta.diff.header.to-file</string>
+      <key>settings</key><dict><key>foreground</key><string>#61CE3C</string></dict>
+    </dict>
+    <dict>
+      <key>name</key><string>Deleted and invalid</string>
+      <key>scope</key><string>markup.deleted, invalid.deprecated, meta.diff.header.from-file</string>
+      <key>settings</key><dict><key>foreground</key><string>#D74E41</string></dict>
+    </dict>
+    <dict>
+      <key>name</key><string>Invalid</string>
+      <key>scope</key><string>invalid.illegal</string>
+      <key>settings</key><dict><key>background</key><string>#BF392A</string><key>foreground</key><string>#F8F8F8</string></dict>
+    </dict>
+  </array>
+  <key>uuid</key>
+  <string>142A07EA-B5AF-4BDB-86E2-BB1031693AA1</string>
+</dict>
+</plist>

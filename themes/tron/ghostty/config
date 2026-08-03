@@ -1,2 +1,2 @@
 # Add this line to ~/.config/ghostty/config after installing both theme files.
-theme = dark:The GridCN Tron,light:The GridCN Tron Light
+theme = dark:Tron Dark,light:Tron Light

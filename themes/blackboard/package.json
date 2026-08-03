@@ -1,0 +1,43 @@
+{
+  "name": "blackboard",
+  "displayName": "Blackboard",
+  "version": "1.1.0",
+  "description": "Blackboard TextMate-inspired dark and light themes for Visual Studio Code.",
+  "categories": [
+    "Themes"
+  ],
+  "keywords": [
+    "blackboard",
+    "dark theme",
+    "light theme",
+    "textmate",
+    "theme"
+  ],
+  "publisher": "chr33s",
+  "scripts": {
+    "install:claude": "mkdir -p ~/.claude/themes && cp ./claude/*.json ~/.claude/themes/",
+    "install:codex": "mkdir -p ~/.codex/themes && cp ./codex/*.tmTheme ~/.codex/themes/",
+    "install:ghostty": "mkdir -p ~/.config/ghostty/themes && cp ./ghostty/* ~/.config/ghostty/themes/",
+    "install:terminal": "open ./terminal/*.terminal",
+    "install:vscode": "npm run package && code --install-extension ./blackboard-${npm_package_version}.vsix",
+    "install:zed": "mkdir -p ~/.config/zed/themes && cp ./zed/*.json ~/.config/zed/themes/",
+    "package": "npx vsce package"
+  },
+  "contributes": {
+    "themes": [
+      {
+        "label": "Blackboard",
+        "path": "./vscode/blackboard-dark.json",
+        "uiTheme": "vs-dark"
+      },
+      {
+        "label": "Blackboard Light",
+        "path": "./vscode/blackboard-light.json",
+        "uiTheme": "vs"
+      }
+    ]
+  },
+  "engines": {
+    "vscode": "^1.74.0"
+  }
+}
