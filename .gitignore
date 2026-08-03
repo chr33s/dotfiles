@@ -8,3 +8,4 @@ ssh/*
 gnupg/*
 !gnupg/common.conf
 !gnupg/gpg-agent.conf
+**/*.vsix

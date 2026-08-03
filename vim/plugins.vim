@@ -10,7 +10,6 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 
 call plug#begin()
 
-Plug 'carlweis/vim-colors-github'
 Plug 'itchyny/lightline.vim'
 if !has('nvim')
     Plug 'tpope/vim-sensible'
@@ -40,32 +39,7 @@ let g:loaded_netrwPlugin=1
 set noshowmode
 set background=light
 
-let g:github_colors_soft = 1
-let g:github_colors_block_diffmark = 0
-colorscheme github
-
 let g:indentLine_char = ''
 let g:indentLine_first_char = ''
 let g:indentLine_showFirstIndentLevel = 1
 let g:indentLine_setColors = 0
-
-let g:lightline = { 'colorscheme': 'github' }
-
-function! SetBackgroundMode(...)
-  if $TERM_PROGRAM ==? 'Apple_Terminal'
-    let s:background = 'light'
-    let s:mode = systemlist('defaults read -g AppleInterfaceStyle')
-    if len(s:mode) != 0 && s:mode[0] == 'Dark'
-      let s:background = 'dark'
-    endif
-
-    if &background !=? s:background
-      let &background = s:background
-    endif
-    
-    call github_colors#togglebg_map('<f5>')
-  endif
-endfunction
-
-call SetBackgroundMode()
-call timer_start(30000, "SetBackgroundMode", {"repeat": -1})

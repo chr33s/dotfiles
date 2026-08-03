@@ -1,0 +1,39 @@
+{
+  "name": "tron",
+  "displayName": "Tron",
+  "version": "0.1.1",
+  "description": "The GridCN Tron for VS Code — a cyan-on-black grid theme with matching dark and light variants, ported from the Zed theme.",
+  "categories": [
+    "Themes"
+  ],
+  "keywords": [
+    "cyan",
+    "dark",
+    "gridcn",
+    "light",
+    "tron"
+  ],
+  "license": "MIT",
+  "publisher": "gridcn",
+  "scripts": {
+    "build": "npx --yes @vscode/vsce package",
+    "install": "code --install-extension tron-0.1.1.vsix"
+  },
+  "contributes": {
+    "themes": [
+      {
+        "label": "Tron Dark",
+        "uiTheme": "vs-dark",
+        "path": "./tron-dark-color-theme.json"
+      },
+      {
+        "label": "Tron Light",
+        "uiTheme": "vs",
+        "path": "./tron-light-color-theme.json"
+      }
+    ]
+  },
+  "engines": {
+    "vscode": "^1.74.0"
+  }
+}
