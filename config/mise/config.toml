@@ -1,0 +1,15 @@
+min_version = "2026.8.0"
+
+[settings]
+idiomatic_version_file_enable_tools = ["node"]
+
+[tools]
+actionlint = "latest"
+ast-grep = "latest"
+bun = "latest"
+deno = "latest"
+gh = "latest"
+go = "latest"
+jq = "latest"
+node = "24"
+ripgrep = "latest"

@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 function update(){
-  brew update && brew upgrade && brew cleanup && zinit self-update && zinit update && vim +PlugUpdate +qall
+  mise self-update && mise bootstrap packages upgrade && mise upgrade && zinit self-update && zinit update && vim +PlugUpdate +qall
 }
 
 ${@}

@@ -1,1 +1,7 @@
 .DS_Store
+mise.local.toml
+mise.*.local.toml
+config/mise/config.local.toml
+config/mise/config.*.local.toml
+config/mise/mise.local.lock
+config/mise/mise.*.local.lock

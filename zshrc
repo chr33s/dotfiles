@@ -20,4 +20,8 @@ for src in exports aliases plugins completions; do
 done
 unset src
 
+if (( $+commands[mise] )); then
+  eval "$(mise activate zsh)"
+fi
+
 printf "\033c" # clear

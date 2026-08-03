@@ -1,0 +1,190 @@
+min_version = "2026.8.0"
+
+[bootstrap.brew.taps]
+"denispol/tap" = "https://github.com/denispol/homebrew-tap.git"
+
+[bootstrap.plugins]
+vscode = "https://github.com/mise-plugins/mise-vscode-extensions"
+
+[bootstrap.hooks.post-dotfiles]
+run = "mise install"
+
+[bootstrap.packages]
+"brew:copilot-cli" = "latest"
+"brew:denispol/tap/darwin-timeout" = "latest"
+"brew:docker" = "latest"
+"brew:git" = "latest"
+"brew:gnupg" = "latest"
+"brew:hf" = "latest"
+"brew:libpq" = "latest"
+"brew:mas" = "latest"
+"brew:mysql-client" = "latest"
+"brew:pinentry-mac" = "latest"
+"brew:podman" = "latest"
+"brew:pv" = "latest"
+"brew:rsync" = "latest"
+"brew:tree" = "latest"
+"brew:watchman" = "latest"
+
+"brew-cask:adoptopenjdk/openjdk/adoptopenjdk16" = "latest"
+"brew-cask:affinity-designer" = "latest"
+"brew-cask:affinity-photo" = "latest"
+"brew-cask:affinity-publisher" = "latest"
+"brew-cask:android-studio" = "latest"
+"brew-cask:chromium" = "latest"
+"brew-cask:copilot-cli" = "latest"
+"brew-cask:claude-code" = "latest"
+"brew-cask:codex" = "latest"
+"brew-cask:cryptomator" = "latest"
+"brew-cask:firefox" = "latest"
+"brew-cask:flipper" = "latest"
+"brew-cask:font-fira-code" = "latest"
+"brew-cask:font-fira-code-nerd-font" = "latest"
+"brew-cask:font-geist" = "latest"
+"brew-cask:font-inter" = "latest"
+"brew-cask:font-martian-mono" = "latest"
+"brew-cask:font-monaspace" = "latest"
+"brew-cask:font-nunito" = "latest"
+"brew-cask:font-poetsen-one" = "latest"
+"brew-cask:font-roboto" = "latest"
+"brew-cask:font-source-code-pro" = "latest"
+"brew-cask:fork" = "latest"
+"brew-cask:ghostty" = "latest"
+"brew-cask:github-copilot-for-xcode" = "latest"
+"brew-cask:google-chrome" = "latest"
+"brew-cask:kaleidoscope" = "latest"
+"brew-cask:logseq" = "latest"
+"brew-cask:mole" = "latest"
+"brew-cask:orbstack" = "latest"
+"brew-cask:onyx" = "latest"
+"brew-cask:sketch" = "latest"
+"brew-cask:tableplus" = "latest"
+"brew-cask:tailscale-app" = "latest"
+"brew-cask:transmit" = "latest"
+"brew-cask:tripmode" = "latest"
+"brew-cask:visual-studio-code" = "latest"
+"brew-cask:yaak" = "latest"
+"brew-cask:zed" = "latest"
+
+"mas:6744867438" = "latest"
+"mas:775737590" = "latest"
+"mas:409183694" = "latest"
+"mas:1289197285" = "latest"
+"mas:409203825" = "latest"
+"mas:409201541" = "latest"
+"mas:1289583905" = "latest"
+"mas:1475387142" = "latest"
+"mas:899247664" = "latest"
+"mas:6745342698" = "latest"
+"mas:1538878817" = "latest"
+"mas:497799835" = "latest"
+"mas:1497506650" = "latest"
+"mas:1451685025" = "latest"
+
+"vscode:aaron-bond.better-comments" = "latest"
+"vscode:bierner.comment-tagged-templates" = "latest"
+"vscode:EditorConfig.EditorConfig" = "latest"
+"vscode:esbenp.prettier-vscode" = "latest"
+"vscode:GitHub.github-vscode-theme" = "latest"
+"vscode:GraphQL.vscode-graphql-syntax" = "latest"
+"vscode:Gruntfuggly.todo-tree" = "latest"
+"vscode:kaleidoscope-app.vscode-ksdiff" = "latest"
+"vscode:ms-azuretools.vscode-docker" = "latest"
+"vscode:ms-vscode-remote.remote-containers" = "latest"
+"vscode:ms-vscode-remote.remote-ssh" = "latest"
+"vscode:ms-vscode-remote.remote-ssh-edit" = "latest"
+"vscode:ms-vscode.remote-explorer" = "latest"
+"vscode:oxc.oxc-vscode" = "latest"
+"vscode:Tailscale.vscode-tailscale" = "latest"
+
+[bootstrap.macos.dock]
+autohide = true
+mru_spaces = false
+
+[bootstrap.macos.trackpad]
+tap_to_click = true
+
+[bootstrap.macos.defaults."NSGlobalDomain"]
+AppleFontSmoothing = 2
+AppleInterfaceStyleSwitchesAutomatically = true
+NSDocumentSaveNewDocumentsToCloud = false
+WebKitDeveloperExtras = true
+"com.apple.mouse.tapBehavior" = 1
+
+[bootstrap.macos.defaults."com.apple.CrashReporter"]
+DialogType = "none"
+
+[bootstrap.macos.defaults."com.apple.desktopservices"]
+DSDontWriteNetworkStores = true
+
+[bootstrap.macos.defaults."com.apple.dock"]
+"enable-spring-load-actions-on-all-items" = true
+"minimize-to-application" = true
+"mouse-over-hilite-stack" = true
+showhidden = true
+
+[bootstrap.macos.defaults."com.apple.iTunes"]
+dontAutomaticallySyncIPods = 1
+
+[bootstrap.macos.defaults."com.apple.print.PrintingPrefs"]
+"Quit When Finished" = true
+
+[bootstrap.macos.defaults."com.apple.Safari"]
+AutoOpenSafeDownloads = false
+HomePage = "about:blank"
+IncludeDevelopMenu = true
+ShowFavoritesBar = false
+
+[bootstrap.macos.defaults."com.apple.screencapture"]
+type = "png"
+
+[bootstrap.macos.defaults."com.apple.TextEdit"]
+RichText = 0
+
+[dotfiles]
+"~/.config/ghostty/config" = "config/ghostty/config"
+"~/.config/mise" = "config/mise"
+"~/.curlrc" = "curlrc"
+"~/.editorconfig" = "editorconfig"
+"~/.gemrc" = "gemrc"
+"~/.gitconfig" = "gitconfig"
+"~/.gitignore" = "gitignore"
+"~/.gnupg" = "gnupg"
+"~/.npmrc" = "npmrc"
+"~/.screenrc" = "screenrc"
+"~/.ssh" = "ssh"
+"~/.tmux.conf" = "tmux.conf"
+"~/.vim" = "vim"
+"~/.vimrc" = "vimrc"
+"~/.zsh" = "zsh"
+"~/.zshrc" = "zshrc"
+"~/Library/Application Support/Code/User/settings.json" = "vscode/settings.json"
+
+"~/.local/bin/_audit" = "local/bin/audit"
+"~/.local/bin/_bundle" = "local/bin/bundle"
+"~/.local/bin/_data" = "local/bin/data"
+"~/.local/bin/_disk" = "local/bin/disk"
+"~/.local/bin/_dotenv" = "local/bin/dotenv"
+"~/.local/bin/_file" = "local/bin/file"
+"~/.local/bin/_git" = "local/bin/git"
+"~/.local/bin/_json" = "local/bin/json"
+"~/.local/bin/_keychain" = "local/bin/keychain"
+"~/.local/bin/_manp" = "local/bin/manp"
+"~/.local/bin/_open" = "local/bin/open"
+"~/.local/bin/_os" = "local/bin/os"
+"~/.local/bin/_password" = "local/bin/password"
+"~/.local/bin/_pip" = "local/bin/pip"
+"~/.local/bin/_random" = "local/bin/random"
+"~/.local/bin/_rm" = "local/bin/rm"
+"~/.local/bin/_server" = "local/bin/server"
+"~/.local/bin/_spoof" = "local/bin/spoof"
+"~/.local/bin/_sync" = "local/bin/sync"
+"~/.local/bin/_todo" = "local/bin/todo"
+"~/.local/bin/_tre" = "local/bin/tre"
+"~/.local/bin/_uuid" = "local/bin/uuid"
+"~/.local/bin/_vagrant" = "local/bin/vagrant"
+"~/.local/bin/_zip" = "local/bin/zip"
+
+[tasks.bootstrap-status]
+description = "Report bootstrap drift without changing the machine"
+run = "mise bootstrap status --missing"

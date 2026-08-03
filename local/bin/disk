@@ -2,7 +2,7 @@
 
 function cleanup() {
   rm -rf .android/cache/* || trye
-  brew cleanup -s && rm -rf $(brew --cache) || true
+  mise cache prune || true
   bundle clean --force || true
   docker system prune && docker image prune && docker container prune && docker volume prune
   npm cache clean -force && rm -rf ~/Library/Caches/{ms-playwright,node-gyp,pnpm}/* || true
