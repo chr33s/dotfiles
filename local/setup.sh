@@ -4,14 +4,11 @@ sudo -v
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 if test ! $(which brew); then
-  # MacOS
-
   scutil --set ComputerName `whoami`
   scutil --set HostName `whoami`
   scutil --set LocalHostName `whoami`
 
   defaults(
-    "/Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string `whoami`"
     "-g AppleInterfaceStyleSwitchesAutomatically -bool true"
     "com.apple.dock mouse-over-hilite-stack -bool true"
     'com.apple.print.PrintingPrefs "Quit When Finished" -bool true'
@@ -51,22 +48,15 @@ if test ! $(which brew); then
 
   softwareupdate -ia
 
-  # Brew
-
   xcode-select --install
-  xcodebuild -license
+  xcodebuild -license accept
 
-  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  eval "$(/opt/homebrew/bin/brew shellenv)"
   brew doctor
   brew install mas
   mas signin
   brew bundle
-
-  extensions(
-    "github/gh-copilot"
-    "github/gh-models"
-  )
-  gh extension install "${extensions[@]}"
 
   vim +PlugInstall +qall
 else
@@ -75,8 +65,6 @@ else
   brew bundle check
 
   ~/.local/bin/_sync vscode
-
-  vagrant plugin update
 
   gh extension upgrade --all
 
