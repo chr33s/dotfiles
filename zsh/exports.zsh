@@ -10,6 +10,5 @@ export PATH="/opt/homebrew/bin:${PATH}"
 export PATH="${PATH}:${ANDROID_HOME}/emulator:${ANDROID_HOME}/tools:${ANDROID_HOME}/tools/bin:${ANDROID_HOME}/platform-tools"
 export PATH="${PATH}:${HOME}/.local/bin:./bin:./node_modules/.bin:${GOPATH}/bin"
 export PATH="${PATH}:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
-export PATH="${PATH}:/Users/chr33s/.lmstudio/bin"
 
 eval "$(gh copilot alias -- zsh)"
