@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+# NOTE: named app_id (not id) so it does not shadow /usr/bin/id.
+app_id() {
+  if [ -z "$1" ]; then
+    echo "usage: app_id <application name>" >&2
+    return 1
+  fi
+  osascript -e "id of app \"$1\""
+}
+
+"$@"

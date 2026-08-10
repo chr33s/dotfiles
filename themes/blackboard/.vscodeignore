@@ -1,0 +1,11 @@
+.DS_Store
+**/.DS_Store
+*.vsix
+
+# Only package.json and vscode/*.json are referenced by contributes.themes.
+# The other directories are this theme's ports to non-VS Code editors and are
+# installed by their own npm scripts, not by the extension.
+codex/**
+ghostty/**
+terminal/**
+zed/**

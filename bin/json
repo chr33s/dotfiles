@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+# `python` was removed in macOS 12.3; use jq (declared in mise.toml).
+pretty() {
+  if ! command -v jq >/dev/null 2>&1; then
+    echo "pretty: jq is not installed" >&2
+    return 1
+  fi
+
+  if [ "$#" -gt 0 ]; then
+    jq . "$@" # one or more filenames
+  else
+    jq . # piped or redirected stdin
+  fi
+}
+
+# Dispatch on a known subcommand, otherwise default to `pretty` and pass the
+# arguments through (so `_json ./file.json` works).
+if [ "$#" -gt 0 ] && declare -f "$1" >/dev/null 2>&1; then
+  cmd="$1"
+  shift
+else
+  cmd="pretty"
+fi
+"$cmd" "$@"

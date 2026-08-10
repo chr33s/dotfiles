@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+spoof() { # [interface]
+  local iface="${1:-en0}"
+  local first rest
+
+  # Clear bit 0 of the first octet (unicast, a multicast address is an illegal
+  # source) and set bit 1 (locally administered).
+  first="$(printf '%02x' "$(( (0x$(openssl rand -hex 1) & 0xfc) | 0x02 ))")"
+  rest="$(openssl rand -hex 5 | sed 's%\(..\)%:\1%g')"
+
+  sudo ifconfig "$iface" ether "${first}${rest}"
+}
+
+spoof "$@"

@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+cleanup() {
+  rm -rf ~/.android/cache || true
+  mise cache prune || true
+  command -v bundle >/dev/null 2>&1 && bundle clean --force || true
+  # `docker volume prune` deletes named-volume data, so it is deliberately omitted.
+  command -v docker >/dev/null 2>&1 && docker system prune -f || true
+  command -v npm >/dev/null 2>&1 && npm cache clean --force || true
+  rm -rf ~/Library/Caches/{ms-playwright,node-gyp,pnpm}/* || true
+  rm -rf ~/.gradle/{.tmp,caches} || true
+  command -v vagrant >/dev/null 2>&1 && vagrant global-status --prune || true
+  rm -rf ./.vagrant.d/tmp/* || true
+  command -v yarn >/dev/null 2>&1 && yarn cache clean || true
+}
+
+usage() {
+  du -d "${2:-1}" -h "${1:-.}" 2>/dev/null | sort -hr
+}
+
+"$@"

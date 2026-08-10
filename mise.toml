@@ -1,36 +1,52 @@
 min_version = "2026.8.0"
 
-[bootstrap.brew.taps]
-"denispol/tap" = "https://github.com/denispol/homebrew-tap.git"
-
 [bootstrap.plugins]
 vscode = "https://github.com/mise-plugins/mise-vscode-extensions"
+
+# The only place Homebrew gets installed. Runs as step 1.7, immediately before
+# the packages stage, where every brew:/brew-cask:/mas: entry would otherwise
+# fail. setup.sh deliberately does not duplicate this: it installs mise from
+# https://mise.run, which needs no Homebrew, so `mise bootstrap` works on its own
+# (after `mise trust`) and the wrapper stays a thin convenience.
+#
+# Consequently mise must NOT be declared in [bootstrap.packages] — a brew:mise
+# entry would install a second copy that shadows the mise.run one, since
+# exports.zsh puts /opt/homebrew/bin ahead of ~/.local/bin.
+[bootstrap.hooks.pre-packages]
+run = """
+if [ ! -x /opt/homebrew/bin/brew ] && ! command -v brew >/dev/null 2>&1; then
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+fi
+"""
 
 [bootstrap.hooks.post-dotfiles]
 run = "mise install"
 
 [bootstrap.packages]
-"brew:copilot-cli" = "latest"
-"brew:denispol/tap/darwin-timeout" = "latest"
+# macOS ships bash 3.2.57 (frozen at the last GPLv2 release, 2007). The bin/
+# scripts declare `#!/usr/bin/env bash`, and exports.zsh puts /opt/homebrew/bin
+# ahead of /bin, so this is what they resolve to.
+"brew:bash" = "latest"
+"brew:container" = "latest"
 "brew:git" = "latest"
+"brew:git-lfs" = "latest"
 "brew:gnupg" = "latest"
-"brew:hf" = "latest"
+"brew:herdr" = "latest"
 "brew:libpq" = "latest"
 "brew:mas" = "latest"
+"brew:mole" = "latest"
 "brew:mysql-client" = "latest"
 "brew:pinentry-mac" = "latest"
-"brew:podman" = "latest"
 "brew:pv" = "latest"
 "brew:rsync" = "latest"
 "brew:tree" = "latest"
 
-"brew-cask:adoptopenjdk/openjdk/adoptopenjdk16" = "latest"
+"brew-cask:temurin@21" = "latest"
 "brew-cask:affinity-designer" = "latest"
 "brew-cask:affinity-photo" = "latest"
 "brew-cask:affinity-publisher" = "latest"
 "brew-cask:android-studio" = "latest"
 "brew-cask:chromium" = "latest"
-"brew-cask:copilot-cli" = "latest"
 "brew-cask:claude-code" = "latest"
 "brew-cask:codex" = "latest"
 "brew-cask:cryptomator" = "latest"
@@ -52,7 +68,6 @@ run = "mise install"
 "brew-cask:google-chrome" = "latest"
 "brew-cask:kaleidoscope" = "latest"
 "brew-cask:logseq" = "latest"
-"brew-cask:mole" = "latest"
 "brew-cask:sketch" = "latest"
 "brew-cask:tableplus" = "latest"
 "brew-cask:tailscale-app" = "latest"
@@ -136,47 +151,77 @@ RichText = 0
 [dotfiles]
 "~/.config/ghostty/config" = "config/ghostty/config"
 "~/.config/mise" = "config/mise"
-"~/.curlrc" = "curlrc"
-"~/.editorconfig" = "editorconfig"
-"~/.gemrc" = "gemrc"
-"~/.gitconfig" = "gitconfig"
-"~/.gitignore" = "gitignore"
-"~/.gnupg" = "gnupg"
-"~/.npmrc" = "npmrc"
-"~/.screenrc" = "screenrc"
-"~/.ssh" = "ssh"
-"~/.tmux.conf" = "tmux.conf"
-"~/.vim" = "vim"
-"~/.vimrc" = "vimrc"
-"~/.zsh" = "zsh"
-"~/.zshrc" = "zshrc"
+"~/.curlrc" = "config/curl/curlrc"
+"~/.editorconfig" = "config/editorconfig/editorconfig"
+"~/.gemrc" = "config/gem/gemrc"
+"~/.gitconfig" = "config/git/gitconfig"
+"~/.gitignore" = "config/git/gitignore"
+"~/.npmrc" = "config/npm/npmrc"
+"~/.screenrc" = "config/screen/screenrc"
+"~/.tmux.conf" = "config/tmux/tmux.conf"
+"~/.vimrc" = "config/vim/vimrc"
+"~/.zsh" = "config/zsh"
+"~/.zshrc" = "config/zsh/zshrc"
 "~/Library/Application Support/Code/User/settings.json" = "config/vscode/settings.json"
+"~/.config/zed/settings.json" = "config/zed/settings.json"
+"~/.config/herdr/config.toml" = "config/herdr/config.toml"
 
-"~/.local/bin/_audit" = "local/bin/audit"
-"~/.local/bin/_bundle" = "local/bin/bundle"
-"~/.local/bin/_data" = "local/bin/data"
-"~/.local/bin/_disk" = "local/bin/disk"
-"~/.local/bin/_dotenv" = "local/bin/dotenv"
-"~/.local/bin/_file" = "local/bin/file"
-"~/.local/bin/_git" = "local/bin/git"
-"~/.local/bin/_json" = "local/bin/json"
-"~/.local/bin/_keychain" = "local/bin/keychain"
-"~/.local/bin/_manp" = "local/bin/manp"
-"~/.local/bin/_open" = "local/bin/open"
-"~/.local/bin/_os" = "local/bin/os"
-"~/.local/bin/_password" = "local/bin/password"
-"~/.local/bin/_pip" = "local/bin/pip"
-"~/.local/bin/_random" = "local/bin/random"
-"~/.local/bin/_rm" = "local/bin/rm"
-"~/.local/bin/_server" = "local/bin/server"
-"~/.local/bin/_spoof" = "local/bin/spoof"
-"~/.local/bin/_sync" = "local/bin/sync"
-"~/.local/bin/_todo" = "local/bin/todo"
-"~/.local/bin/_tre" = "local/bin/tre"
-"~/.local/bin/_uuid" = "local/bin/uuid"
-"~/.local/bin/_vagrant" = "local/bin/vagrant"
-"~/.local/bin/_zip" = "local/bin/zip"
+# Map individual files here, not the containing directory. `mise bootstrap
+# dotfiles apply --force` replaces an existing target directory with a symlink
+# and does not back it up, so mapping ~/.ssh or ~/.gnupg would destroy the
+# private keys and keyring that live alongside these files — the repo only
+# tracks the .conf/config members (see .gitignore), never the secrets.
+#
+# ~/.config/mise and ~/.zsh above stay directory mappings on purpose: the repo
+# tracks their full contents, so nothing untracked can be lost, and mise needs
+# ~/.config/mise to be a real directory to write mise.lock back into the repo.
+"~/.gnupg/common.conf" = "config/gnupg/common.conf"
+"~/.gnupg/gpg-agent.conf" = "config/gnupg/gpg-agent.conf"
+"~/.ssh/config" = "config/ssh/config"
+"~/.ssh/allowed_signers" = "config/ssh/allowed_signers"
+"~/.vim/plugins.vim" = "config/vim/plugins.vim"
+
+"~/.local/bin/_audit" = "bin/audit"
+"~/.local/bin/_bundle" = "bin/bundle"
+"~/.local/bin/_data" = "bin/data"
+"~/.local/bin/_disk" = "bin/disk"
+"~/.local/bin/_dotenv" = "bin/dotenv"
+"~/.local/bin/_file" = "bin/file"
+"~/.local/bin/_git" = "bin/git"
+"~/.local/bin/_json" = "bin/json"
+"~/.local/bin/_keychain" = "bin/keychain"
+"~/.local/bin/_manp" = "bin/manp"
+"~/.local/bin/_open" = "bin/open"
+"~/.local/bin/_os" = "bin/os"
+"~/.local/bin/_password" = "bin/password"
+"~/.local/bin/_pip" = "bin/pip"
+"~/.local/bin/_random" = "bin/random"
+"~/.local/bin/_rm" = "bin/rm"
+"~/.local/bin/_server" = "bin/server"
+"~/.local/bin/_spoof" = "bin/spoof"
+"~/.local/bin/_sync" = "bin/sync"
+"~/.local/bin/_todo" = "bin/todo"
+"~/.local/bin/_tre" = "bin/tre"
+"~/.local/bin/_uuid" = "bin/uuid"
+"~/.local/bin/_vagrant" = "bin/vagrant"
+"~/.local/bin/_zip" = "bin/zip"
 
 [tasks.bootstrap-status]
 description = "Report bootstrap drift without changing the machine"
 run = "mise bootstrap status --missing"
+
+# Runs as bootstrap step 15. These are the steps `setup.sh` used to do before it
+# was reduced to a mise wrapper, plus the theme installs that the ghostty, zed
+# and vscode configs all depend on.
+[tasks.bootstrap]
+description = "Post-package setup: App Store auth, themes, terminal defaults"
+run = """
+if command -v mas >/dev/null 2>&1 && ! mas account >/dev/null 2>&1; then
+  echo "Sign in to the App Store before the mas: packages can install." >&2
+fi
+
+npm --prefix themes/blackboard run install
+
+defaults write com.apple.terminal StringEncodings -array 4
+defaults write com.apple.screencapture location -string "${HOME}/Downloads"
+"""

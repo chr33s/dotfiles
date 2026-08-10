@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+audit() {
+  sudo praudit -l /dev/auditpipe
+}
+
+audit "$@"

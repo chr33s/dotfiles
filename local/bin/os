@@ -1,7 +1,0 @@
-#!/usr/bin/env sh
-
-function update(){
-  mise self-update && mise bootstrap packages upgrade && mise upgrade && zinit self-update && zinit update && vim +PlugUpdate +qall
-}
-
-${@}

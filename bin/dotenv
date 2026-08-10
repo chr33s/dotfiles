@@ -1,0 +1,76 @@
+#!/usr/bin/env bash
+#
+# This file MUST be SOURCED, not executed. `export` in a child process is
+# discarded when that process exits, so running it as a command does nothing:
+#
+#   source _dotenv            # loads ./.env into the current shell
+#   source _dotenv .env.local # loads a specific file
+#
+dotenv() {
+  local file="${1:-.env}"
+
+  if [ ! -f "$file" ]; then
+    echo "dotenv: '$file' not found" >&2
+    return 1
+  fi
+
+  local line key value
+  while IFS= read -r line || [ -n "$line" ]; do
+    # skip blank lines and comments
+    case "$line" in
+      '' | [[:space:]]*'#'* | '#'*) continue ;;
+    esac
+    # tolerate a leading `export `
+    line="${line#export }"
+    case "$line" in
+      *=*) ;;
+      *) continue ;;
+    esac
+
+    key="${line%%=*}"
+    value="${line#*=}"
+
+    # trim surrounding whitespace from the key
+    key="${key#"${key%%[![:space:]]*}"}"
+    key="${key%"${key##*[![:space:]]}"}"
+    [ -z "$key" ] && continue
+
+    # strip one layer of matching quotes from the value
+    case "$value" in
+      \"*\") value="${value#\"}" ; value="${value%\"}" ;;
+      \'*\') value="${value#\'}" ; value="${value%\'}" ;;
+    esac
+
+    export "${key}=${value}"
+  done <"$file"
+}
+
+# Detect direct execution. Ask each shell in its own terms: zsh has no
+# BASH_SOURCE and marks a sourced file with ":file" in ZSH_EVAL_CONTEXT, while
+# bash compares BASH_SOURCE[0] to $0. Touching BASH_SOURCE only inside the bash
+# branch keeps this working when zsh runs with `set -u`.
+#
+# The default is "sourced": guessing wrong that way merely skips a warning,
+# whereas guessing wrong the other way would `exit` an interactive shell.
+_dotenv_executed=0
+if [ -n "${ZSH_VERSION:-}" ]; then
+  case "${ZSH_EVAL_CONTEXT:-}" in
+    *:file*) ;;
+    *) _dotenv_executed=1 ;;
+  esac
+elif [ -n "${BASH_VERSION:-}" ]; then
+  if [ "${BASH_SOURCE[0]}" = "$0" ]; then
+    _dotenv_executed=1
+  fi
+fi
+
+if [ "$_dotenv_executed" -eq 1 ]; then
+  unset _dotenv_executed
+  echo "dotenv: this script must be sourced, not executed." >&2
+  echo "        exported variables are lost when the child process exits." >&2
+  echo "usage:  source _dotenv [file]   (default: .env)" >&2
+  exit 1
+fi
+unset _dotenv_executed
+
+dotenv "$@"

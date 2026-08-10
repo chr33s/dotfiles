@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+
+export PASSWORD='password'
+
+container run --restart always --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=${PASSWORD} -d mysql:oracle mysqld --default-authentication-plugin=mysql_native_password
+container run --restart always --name postgres -p 5432:5432 -e POSTGRES_PASSWORD=${PASSWORD} -d postgres
+container run --restart always --name redis -p 6379:6379 -d redis --save 60 1 --loglevel warning

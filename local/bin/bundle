@@ -1,7 +1,0 @@
-#!/usr/bin/env sh
-
-function id() {
-  echo osascript -e "id of app \"$1\""
-}
-
-${@}

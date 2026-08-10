@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+# chrome/edge/firefox/safari are not commands on macOS; use `open -a`.
+browsers() {
+  if [ -z "$1" ]; then
+    echo "usage: browsers <url|file>" >&2
+    return 1
+  fi
+
+  local app
+  for app in "Google Chrome" "Microsoft Edge" "Firefox" "Safari"; do
+    open -a "$app" "$1" 2>/dev/null || echo "skipped: $app is not installed" >&2
+  done
+}
+
+"$@"

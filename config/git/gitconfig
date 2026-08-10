@@ -1,0 +1,81 @@
+[alias]
+  clear = clean -f -d
+  last = log -1 HEAD
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+  rename = _git rename
+  undo = reset --soft HEAD~1
+[apply]
+  whitespace = fix
+[branch]
+  autosetuprebase = always
+[color]
+  ui = true
+[color "status"]
+  untracked = cyan
+[commit]
+  gpgsign = true
+[core]
+  autocrlf = input
+  excludesfile = ~/.gitignore
+  trustctime = false
+  untrackedCache = true
+  whitespace = space-before-tab,-indent-with-non-tab,trailing-space
+[credential]
+  helper = osxkeychain
+[diff]
+  colorMoved = zebra
+  tool = Kaleidoscope
+[difftool]
+  prompt = false
+  trustExitCode = true
+[difftool "Kaleidoscope"]
+  cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[fetch]
+  fsckobjects = true
+  prune = true
+[filter "lfs"]
+  clean = git lfs clean -- %f
+  smudge = git lfs smudge -- %f
+  required = true
+  process = git-lfs filter-process
+[gpg]
+  format = ssh
+[gpg "ssh"]
+  allowedSignersFile = ~/.ssh/allowed_signers
+[init]
+  defaultBranch = main
+[merge]
+  log = true
+  tool = Kaleidoscope
+[mergetool]
+  keepBackup = false
+  prompt = false
+[mergetool "Kaleidoscope"]
+  cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+  trustExitCode = true
+[pull]
+  rebase = true
+[push]
+  default = current
+  followTags = true
+[rebase]
+  autosquash = true
+[receive]
+  fsckObjects = true
+[tag]
+  gpgSign = true
+[transfer]
+  fsckobjects = true
+[url "ssh://git@github.com/"]
+  insteadOf = https://github.com/
+[url "ssh://git@gitlab.com/"]
+  insteadOf = https://gitlab.com/
+[url "ssh://git@bitbucket.org/"]
+  insteadOf = https://bitbucket.org/
+[user]
+  email = chr33s@icloud.com
+  name = chris
+  user = chr33s
+  signingkey = ~/.ssh/chr33s@icloud.com.pub
+# [includeIf "gitdir:~/Developer/work/"]
+#	path = ~/Developer/work/.gitconfig

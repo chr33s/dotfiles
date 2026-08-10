@@ -1,11 +1,19 @@
 .DS_*
 *.swp
 *.bak
-vim/*
-!vim/init.vim
-ssh/*
-!ssh/config
-gnupg/*
-!gnupg/common.conf
-!gnupg/gpg-agent.conf
+
+# vim-plug writes autoload/ and plugged/ into ~/.vim at runtime.
+config/vim/*
+!config/vim/plugins.vim
+!config/vim/vimrc
+
+# Allowlist only: everything else in these directories is a private key,
+# a keyring, or agent state that must never be committed.
+config/ssh/*
+!config/ssh/config
+!config/ssh/allowed_signers
+config/gnupg/*
+!config/gnupg/common.conf
+!config/gnupg/gpg-agent.conf
+
 **/*.vsix

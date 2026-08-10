@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+# NOTE: these live at top level so the dispatcher below can reach them, and
+# `find` was renamed to `get` so it does not shadow /usr/bin/find.
+add() {
+  if [ -z "$1" ]; then
+    echo "Error: No token name provided." >&2
+    return 1
+  fi
+
+  if ! security add-generic-password -a "${USER}" -s "$1" -w; then
+    echo "Error: Failed to add token to keychain." >&2
+    return 1
+  fi
+}
+
+get() {
+  if [ -z "$1" ]; then
+    echo "Error: No token name provided." >&2
+    return 1
+  fi
+
+  security find-generic-password -a "${USER}" -s "$1" -w
+}
+
+"$@"

@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+scrub() {
+  if [ -f "$1" ] && [[ "$1" == *.zip ]]; then
+    zip -qd "$1" '__MACOSX/*'
+    zip -qd "$1" '*/.DS_Store'
+    unzip -vl "$1"
+  else
+    echo "'$1' invalid file" >&2
+    return 1
+  fi
+}
+
+# Dispatch on a known subcommand, otherwise default to `scrub` and pass the
+# arguments through (so `_zip archive.zip` works).
+if [ "$#" -gt 0 ] && declare -f "$1" >/dev/null 2>&1; then
+  cmd="$1"
+  shift
+else
+  cmd="scrub"
+fi
+"$cmd" "$@"

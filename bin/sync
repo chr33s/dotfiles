@@ -1,0 +1,84 @@
+#!/usr/bin/env bash
+
+all() { # <destination> [--apply|-f]
+  mac "$@" &&
+    sublime &&
+    vscode
+}
+
+mac() { # <destination> [--apply|-f]
+  local dest="$1"
+
+  if [ -z "$dest" ]; then
+    echo "usage: mac <destination directory> [--apply|-f]" >&2
+    echo "       runs as a --dry-run unless --apply/-f is given" >&2
+    return 1
+  fi
+  shift
+
+  # Dry run by default; writing requires an explicit opt-in.
+  local mode=(--dry-run)
+  case "${1:-}" in
+    --apply | -f) mode=() ;;
+    '') ;;
+    *)
+      echo "mac: unknown option '$1'" >&2
+      return 1
+      ;;
+  esac
+
+  mkdir -p "$dest" || return 1
+
+  local dir
+  for dir in Developer Documents Downloads Notes; do
+    # NOTE: --delete-excluded is deliberately absent; it implies --delete and
+    # would destroy the contents of the destination.
+    rsync \
+      "${mode[@]}" \
+      --links \
+      --inplace \
+      --recursive \
+      --no-whole-file \
+      --info=progress2 \
+      --exclude "**/.cache" \
+      --exclude "**/.vagrant" \
+      --exclude "**/node_modules" \
+      "${HOME}/${dir}" "${dest}/" || return 1
+  done
+
+  if [ "${#mode[@]}" -gt 0 ]; then
+    echo "mac: dry run only, re-run with --apply to write." >&2
+  fi
+}
+
+sublime() { # copy> | link
+  local cmd="${1:-copy}"
+  local dest="${HOME}/.config/sublime"
+  local src=""
+
+  case "$OSTYPE" in
+    darwin*) src="${HOME}/Library/Application Support/Sublime Text 3/Packages/User" ;;
+    linux*) src="${HOME}/.config/sublime-text-3/Packages/User" ;;
+  esac
+
+  if [ -z "$src" ]; then
+    echo "sublime: unsupported platform '$OSTYPE'" >&2
+    return 1
+  fi
+
+  case "$cmd" in
+    copy) cp -R "$src" "$dest" ;;
+    link) { mv "$src" "$src.bak" || true; } && ln -s "$dest" "$src" ;;
+    *)
+      echo "usage: sublime [copy|link]" >&2
+      return 1
+      ;;
+  esac
+}
+
+vscode() {
+  mkdir -p "${PWD}/vscode" || return 1
+  code --list-extensions >"${PWD}/vscode/extensions.txt"
+}
+
+"$@"

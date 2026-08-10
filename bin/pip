@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+# NOTE: the old implementation also uninstalled everything in the package's
+# `Requires:` list, which breaks shared transitive dependencies. Removed.
+rm() {
+  if [ -z "$1" ]; then
+    echo "usage: rm <package> [package...]" >&2
+    return 1
+  fi
+
+  if command -v uv >/dev/null 2>&1; then
+    uv pip uninstall "$@"
+  else
+    pip3 uninstall -y "$@"
+  fi
+}
+
+"$@"

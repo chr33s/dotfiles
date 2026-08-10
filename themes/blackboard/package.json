@@ -15,13 +15,13 @@
   ],
   "publisher": "chr33s",
   "scripts": {
-    "install:claude": "mkdir -p ~/.claude/themes && cp ./claude/*.json ~/.claude/themes/",
+    "install": "npm run install:codex && npm run install:ghostty && npm run install:zed && npm run install:vscode",
     "install:codex": "mkdir -p ~/.codex/themes && cp ./codex/*.tmTheme ~/.codex/themes/",
     "install:ghostty": "mkdir -p ~/.config/ghostty/themes && cp ./ghostty/* ~/.config/ghostty/themes/",
     "install:terminal": "open ./terminal/*.terminal",
-    "install:vscode": "npm run package && code --install-extension ./blackboard-${npm_package_version}.vsix",
+    "install:vscode": "command -v code >/dev/null || { echo 'install:vscode: no code CLI on PATH, skipping' >&2; exit 0; }; [ -f ./blackboard-${npm_package_version}.vsix ] || npm run package; code --install-extension ./blackboard-${npm_package_version}.vsix --force",
     "install:zed": "mkdir -p ~/.config/zed/themes && cp ./zed/*.json ~/.config/zed/themes/",
-    "package": "npx vsce package"
+    "package": "npx --yes @vscode/vsce package"
   },
   "contributes": {
     "themes": [

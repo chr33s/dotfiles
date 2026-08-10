@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+ds_store() {
+  find "${1:-${PWD}}" -type f -name ".DS_Store" -exec rm {} +
+}
+
+"$@"

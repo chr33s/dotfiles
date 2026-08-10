@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+update() {
+  # `mise self-update` refuses to run for a Homebrew-managed install.
+  if command -v brew >/dev/null 2>&1 && brew list --formula mise >/dev/null 2>&1; then
+    brew upgrade mise || true
+  elif command -v mise >/dev/null 2>&1; then
+    mise self-update || true
+  fi
+
+  if command -v mise >/dev/null 2>&1; then
+    mise bootstrap packages upgrade || true
+    mise upgrade || true
+  fi
+
+  # zinit is a zsh function defined in zsh/plugins.zsh; it does not exist in a
+  # bash subprocess, so run it through an interactive zsh.
+  if command -v zsh >/dev/null 2>&1; then
+    zsh -ic 'zinit self-update && zinit update --all' || true
+  fi
+
+  command -v vim >/dev/null 2>&1 && vim +PlugUpdate +qall || true
+}
+
+"$@"

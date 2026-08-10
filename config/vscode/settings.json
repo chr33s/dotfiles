@@ -92,7 +92,7 @@
     "**/yarn.lock": true
   },
   "telemetry.telemetryLevel": "off",
-  "terminal.integrated.fontFamily": "MonaspaceNeon, FiraCodeNerdFontComplete-Retina, Menlo, Monaco, 'Courier New', monospace",
+  "terminal.integrated.fontFamily": "MonaspaceNeon, FiraCodeNerdFont-Retina, Menlo, Monaco, 'Courier New', monospace",
   "terminal.integrated.fontSize": 12,
   "terminal.integrated.fontWeight": "300",
   "terminal.integrated.scrollback": 10000,
@@ -110,11 +110,11 @@
   "window.nativeTabs": true,
   "window.restoreWindows": "all",
   "window.title": "${rootName}",
-  "workbench.colorTheme": "GitHub Light",
+  "workbench.colorTheme": "Blackboard Light",
   "workbench.fontAliasing": "antialiased",
   "workbench.list.smoothScrolling": true,
-  "workbench.preferredDarkColorTheme": "GitHub Dark",
-  "workbench.preferredLightColorTheme": "GitHub Light",
+  "workbench.preferredDarkColorTheme": "Blackboard",
+  "workbench.preferredLightColorTheme": "Blackboard Light",
   "workbench.startupEditor": "newUntitledFile",
   "workbench.settings.applyToAllProfiles": [
     "workbench.colorTheme",

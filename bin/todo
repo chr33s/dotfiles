@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+todo() {
+  if command -v rg >/dev/null 2>&1; then
+    rg --hidden --glob '!.git' --glob '!node_modules' 'TODO|FIXME|IDEA' "${@:-.}"
+  else
+    grep -rIn --exclude-dir=.git --exclude-dir=node_modules -E 'TODO|FIXME|IDEA' "${@:-.}"
+  fi
+}
+
+todo "$@"

@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+uri() {
+  if [ ! -f "$1" ]; then
+    echo "usage: uri <file>" >&2
+    return 1
+  fi
+
+  local mimeType
+  mimeType="$(file -b --mime-type "$1")"
+  if [[ $mimeType == text/* ]]; then
+    mimeType="${mimeType};charset=utf-8"
+  fi
+  echo "data:${mimeType};base64,$(openssl base64 -in "$1" | tr -d '\n')"
+}
+
+# Dispatch on a known subcommand, otherwise default to `uri` and pass the
+# arguments through (so `_data ./file.png` works).
+if [ "$#" -gt 0 ] && declare -f "$1" >/dev/null 2>&1; then
+  cmd="$1"
+  shift
+else
+  cmd="uri"
+fi
+"$cmd" "$@"

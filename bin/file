@@ -1,0 +1,101 @@
+#!/usr/bin/env bash
+
+# Create <src>.tar.gz from a file OR a directory. Refuses to clobber.
+compress() {
+  local src="${1%/}"
+
+  if [ -z "$src" ]; then
+    echo "usage: compress <file|directory>" >&2
+    return 1
+  fi
+  if [ ! -e "$src" ]; then
+    echo "'$src' is not a valid file or directory" >&2
+    return 1
+  fi
+
+  local out="${src}.tar.gz"
+  if [ -e "$out" ]; then
+    echo "'$out' already exists, refusing to overwrite" >&2
+    return 1
+  fi
+
+  if command -v pv >/dev/null 2>&1; then
+    local bytes
+    bytes=$(($(du -sk "$src" | awk '{print $1}') * 1024))
+    tar cf - "$src" | pv -s "$bytes" | gzip >"$out"
+  else
+    tar cf - "$src" | gzip >"$out"
+  fi
+}
+
+# NOTE: the KDF flags here must match `encrypt` exactly.
+decrypt() {
+  local name="$1"
+
+  if [ -z "$name" ]; then
+    echo "usage: decrypt <name>   # reads <name>.tar.gz.enc" >&2
+    return 1
+  fi
+  if [ ! -f "${name}.tar.gz.enc" ]; then
+    echo "'${name}.tar.gz.enc' is not a valid file" >&2
+    return 1
+  fi
+  if [ -e "${name}.tar.gz" ]; then
+    echo "'${name}.tar.gz' already exists, refusing to overwrite" >&2
+    return 1
+  fi
+
+  openssl enc -aes-256-cbc -pbkdf2 -iter 600000 -d \
+    -in "${name}.tar.gz.enc" -out "${name}.tar.gz" &&
+    tar -zxvf "${name}.tar.gz" &&
+    rm "${name}.tar.gz"
+}
+
+encrypt() {
+  local name="${1%/}"
+
+  if [ -z "$name" ]; then
+    echo "usage: encrypt <file|directory>" >&2
+    return 1
+  fi
+  if [ ! -e "$name" ]; then
+    echo "'$name' is not a valid file or directory" >&2
+    return 1
+  fi
+  if [ -e "${name}.tar.gz" ]; then
+    echo "'${name}.tar.gz' already exists, refusing to overwrite" >&2
+    return 1
+  fi
+  if [ -e "${name}.tar.gz.enc" ]; then
+    echo "'${name}.tar.gz.enc' already exists, refusing to overwrite" >&2
+    return 1
+  fi
+
+  tar -zcvf "${name}.tar.gz" "$name" &&
+    openssl enc -aes-256-cbc -pbkdf2 -iter 600000 -salt \
+      -in "${name}.tar.gz" -out "${name}.tar.gz.enc" &&
+    rm "${name}.tar.gz"
+}
+
+extract() {
+  if [ -f "$1" ]; then
+    case "$1" in
+      *.tar.bz2) tar xjf "$1" ;;
+      *.tar.gz) tar xzf "$1" ;;
+      *.bz2) bunzip2 "$1" ;;
+      *.rar) unrar e "$1" ;;
+      *.gz) gunzip "$1" ;;
+      *.tar) tar xf "$1" ;;
+      *.tbz2) tar xjf "$1" ;;
+      *.tgz) tar xzf "$1" ;;
+      *.zip) unzip "$1" ;;
+      *.Z) uncompress "$1" ;;
+      *.7z) 7z x "$1" ;;
+      *) echo "'$1' is an unsupported ext" >&2 ;;
+    esac
+  else
+    echo "'$1' is not a valid file" >&2
+  fi
+}
+
+"$@"

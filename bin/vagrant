@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+
+up() {
+  if ! command -v vagrant >/dev/null 2>&1; then
+    echo "up: vagrant is not installed" >&2
+    return 1
+  fi
+
+  local available_updates versions box version
+  available_updates="$(vagrant box outdated --global | grep outdated | tr -d "*'" | cut -d ' ' -f 2)"
+
+  # NOTE: the original tested ${#AVAILABLE_UPDATES[@]} on a scalar, which is
+  # always 1, so the "updated" branch always ran.
+  if [ -n "$available_updates" ]; then
+    for box in $available_updates; do
+      versions="$(vagrant box list | grep "$box" | cut -d ',' -f 2 | tr -d ' )')"
+
+      vagrant box add --clean "$box"
+
+      for version in $versions; do
+        vagrant box remove "$box" -f --box-version="$version"
+      done
+    done
+
+    echo "All boxes updated!"
+  else
+    echo "All boxes already updated!"
+  fi
+
+  vagrant box outdated --global
+}
+
+"${@:-up}"
