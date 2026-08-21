@@ -1,0 +1,80 @@
+{
+  "id": "user.blackboard-light",
+  "name": "Blackboard Light",
+  "version": 1,
+  "appearance": "light",
+  "author": "Domenico Carbotta, ported by chr33s",
+  "editor": {
+    "background": "#F8FAFD",
+    "text": "#1E2840",
+    "cursor": "#0C1021",
+    "currentLineHighlight": "#0C10210A",
+    "currentStatementHighlight": "#35548F1E",
+    "selection": "#C6D6EE",
+    "lineNumber": "#5B6B88",
+    "invisibles": "#0C102140",
+    "syntax": {
+      "keyword": "#8F6F00",
+      "string": "#2E7D1B",
+      "number": "#6C7A00",
+      "comment": "#878E9B",
+      "null": "#6C7A00",
+      "operator": "#1E2840",
+      "function": "#2A5E9F",
+      "type": "#35548F"
+    }
+  },
+  "dataGrid": {
+    "background": "#F8FAFD",
+    "text": "#1E2840",
+    "alternateRow": "#F1F4FA",
+    "nullValue": "#5B6B88",
+    "boolTrue": "#2E7D1B",
+    "boolFalse": "#AB2A1D",
+    "rowNumber": "#5B6B88",
+    "modified": "#B08D004D",
+    "inserted": "#2E7D1B26",
+    "deleted": "#AB2A1D26",
+    "deletedText": "#AB2A1D80",
+    "focusBorder": "#35548F"
+  },
+  "ui": {
+    "windowBackground": "#F8FAFD",
+    "controlBackground": "#FDFEFF",
+    "cardBackground": "#FDFEFF",
+    "border": "#35548F29",
+    "primaryText": "#1E2840",
+    "secondaryText": "#5B6B88",
+    "tertiaryText": "#93A0B5",
+    "selectionBackground": "#C6D6EE",
+    "hoverBackground": "#0C102110",
+    "status": {
+      "success": "#2E7D1B",
+      "warning": "#9A7B00",
+      "error": "#AB2A1D",
+      "info": "#3D639C"
+    },
+    "badges": {
+      "background": "#E7EDF7",
+      "primaryKey": "#3D639C26",
+      "autoIncrement": "#BF4D0026"
+    }
+  },
+  "sidebar": {
+    "background": "#F1F4FA",
+    "text": "#35548F",
+    "selectedItem": "#C6D6EE",
+    "hover": "#0C102110",
+    "sectionHeader": "#35548F"
+  },
+  "toolbar": {
+    "secondaryText": "#5B6B88",
+    "tertiaryText": "#93A0B5"
+  },
+  "fonts": {
+    "editorFontFamily": "System Mono",
+    "editorFontSize": 13,
+    "dataGridFontFamily": "System Mono",
+    "dataGridFontSize": 13
+  }
+}
