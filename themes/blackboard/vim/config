@@ -1,0 +1,5 @@
+" Add these lines to ~/.vimrc or ~/.config/nvim/init.vim after installing the
+" colors/blackboard.vim file. Set background before loading the theme to
+" choose its matching variant.
+set background=dark
+colorscheme blackboard
