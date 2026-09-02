@@ -1,6 +1,0 @@
-# Merge this section into ~/.config/herdr/config.toml.
-# Herdr's terminal theme imports the active Ghostty foreground, background,
-# and ANSI palette, so Ghostty's system dark/light switching is inherited.
-
-[theme]
-name = "terminal"
