@@ -1,10 +1,23 @@
-min_version = "2026.8.0"
+min_version = "2026.10.7"
 
 [settings]
 idiomatic_version_file_enable_tools = ["node"]
 
+[env]
+# Let mise own Claude Code updates.
+DISABLE_AUTOUPDATER = "1"
+
 [tools]
-actionlint = "latest"
+# Opt in the tools migrated from Homebrew to daily updates.
+claude = { version = "latest", auto_update = "24h" }
+codex = { version = "latest", auto_update = "24h" }
+git-lfs = { version = "latest", auto_update = "24h" }
+herdr = { version = "latest", auto_update = "24h" }
+mole = { version = "latest", auto_update = "24h" }
+"conda:pv" = { version = "latest", auto_update = "24h" }
+"conda:tree" = { version = "latest", auto_update = "24h" }
+
+# Preserve the existing tools' update policy.
 ast-grep = "latest"
 bun = "latest"
 copilot = "latest"
@@ -13,6 +26,7 @@ fnox = "latest"
 gh = "latest"
 go = "latest"
 hk = "latest"
+jactionlint = "latest"
 jq = "latest"
 node = "24"
 pnpm = "latest"
